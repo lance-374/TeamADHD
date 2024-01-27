@@ -93,3 +93,6 @@ shape = SubResource("RectangleShape2D_5k34a")
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_c4h17")
 animation = &"run"
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(8, -8)
