@@ -11,7 +11,9 @@ const ACCEL = 600
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@export var Bullet : PackedScene
+#@onready var Bullet = $Bullet
+var Bullet = preload("res://bullet.tscn") # Will load when parsing the script.
+#@onready var Bullet : PackedScene
 
 
 func _physics_process(delta):
@@ -34,11 +36,11 @@ func handle_jump():
 		velocity.y = JUMP_VELOCITY
 	elif Input.is_action_just_released(jump) and velocity.y < JUMP_VELOCITY / 2:
 		velocity.y = JUMP_VELOCITY / 2
-		
+
 func handle_shoot():
 	if Input.is_action_just_pressed("shoot1"):
 		var b = Bullet.instantiate()
-		add_child(b)
+		get_tree().root.add_child(b)
 		b.transform = $Muzzle.global_transform
 
 func apply_friction(input_axis, delta):
