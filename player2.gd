@@ -11,15 +11,18 @@ const ACCEL = 600
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-#@onready var Bullet = $Bullet
+@onready var muzzle = $Muzzle
 var Bullet = preload("res://bullet.tscn") # Will load when parsing the script.
-#@onready var Bullet : PackedScene
-
+var isFlipped = false
 
 func _physics_process(delta):
 	apply_gravity(delta)
 	handle_jump()
 	var input_axis = Input.get_axis("left1", "right1")
+	if input_axis < 0:
+		isFlipped = true
+	if input_axis > 0:
+		isFlipped = false
 	handle_shoot()
 	apply_accel(input_axis, delta)
 	apply_friction(input_axis, delta)
@@ -41,6 +44,12 @@ func handle_shoot():
 	if Input.is_action_just_pressed("shoot1"):
 		var b = Bullet.instantiate()
 		get_tree().root.add_child(b)
+		if isFlipped:
+			muzzle.position.x = 8
+			b.set_speed(-750)
+		else:
+			muzzle.position.x = -8
+			b.set_speed(750)
 		b.transform = $Muzzle.global_transform
 
 func apply_friction(input_axis, delta):
