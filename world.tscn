@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccssg00268506"]
+[gd_scene load_steps=6 format=3 uid="uid://ccssg00268506"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_g30kw"]
 [ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://player1.tscn" id="2_q8khx"]
 [ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://player2.tscn" id="3_2k4if"]
+[ext_resource type="Script" path="res://player1.gd" id="3_734u1"]
+[ext_resource type="Script" path="res://player2.gd" id="5_g3mao"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_g30kw")
@@ -16,6 +18,8 @@ polygon = PackedVector2Array(16, 0, 16, 144, 48, 144, 88, 160, 120, 160, 136, 14
 
 [node name="Player1" parent="." instance=ExtResource("2_q8khx")]
 position = Vector2(104, 152)
+script = ExtResource("3_734u1")
 
 [node name="Player2" parent="." instance=ExtResource("3_2k4if")]
 position = Vector2(224, 152)
+script = ExtResource("5_g3mao")
