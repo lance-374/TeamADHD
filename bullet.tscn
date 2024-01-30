@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgic14pnwh6ft"]
+[gd_scene load_steps=4 format=3 uid="uid://dkx8tw1qcgucq"]
 
 [ext_resource type="Script" path="res://Bullet.gd" id="1_vi3tj"]
-[ext_resource type="Texture2D" path="res://laser.png" id="2_4tbo2"]
+[ext_resource type="Texture2D" uid="uid://cxgqyr6nl1to" path="res://laser.png" id="2_4tbo2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_al4mr"]
 a = Vector2(136, 96)

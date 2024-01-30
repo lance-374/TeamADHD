@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Heart Platformer"
-run/main_scene="res://world.tscn"
+config/name="TeamADHD"
+run/main_scene="res://test_level.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -73,6 +73,16 @@ right2={
 jump2={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+shoot1={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":5,"axis_value":1.0,"script":null)
+]
+}
+shoot2={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":5,"axis_value":1.0,"script":null)
 ]
 }
 
