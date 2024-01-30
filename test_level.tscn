@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqw1k52kx64o8"]
+
+[ext_resource type="Script" path="res://test_level.gd" id="1_tjd8m"]
+[ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://player1.tscn" id="2_0fdpx"]
+[ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://player2.tscn" id="3_75bxa"]
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_tjd8m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-0.916731, -0.499996)
+scale = Vector2(0.481771, 0.481771)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 320, 256, 320, 256, 256, 320, 192, 384, 256, 384, 320, 448, 320, 448, 256, 512, 224, 576, 224, 640, 128, 640, 0, 704, 0, 704, 264.039, 704, 384, 0, 384)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="Player1" parent="." instance=ExtResource("2_0fdpx")]
+position = Vector2(256, 96)
+
+[node name="Player2" parent="." instance=ExtResource("3_75bxa")]
+position = Vector2(88, 144)
