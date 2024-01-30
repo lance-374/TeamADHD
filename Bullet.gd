@@ -9,6 +9,6 @@ func _on_Bullet_body_entered(body):
 	if body == 'player1':
 		body.queue_free()
 	queue_free()
-
+	
 func set_speed(s):
 	speed = s
