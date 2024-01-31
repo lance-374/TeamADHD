@@ -11,11 +11,9 @@ b = Vector2(120, 96)
 script = ExtResource("1_vi3tj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-128, -104)
+position = Vector2(-128, -96)
 shape = SubResource("SegmentShape2D_al4mr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4tbo2")

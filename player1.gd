@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -300.0
 const FRICTION = 1000
 const ACCEL = 600
 
-#var controller_index = 0
+var aim_input = Vector2.ZERO
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -13,7 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle = $Muzzle
 var Bullet = preload("res://bullet.tscn") # Will load when parsing the script.
-var isFlipped = false
+var isFlipped = false # isFlipped means facing left
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -22,6 +22,12 @@ func _physics_process(delta):
 	if input_axis < 0:
 		isFlipped = true
 	if input_axis > 0:
+		isFlipped = false
+	aim_input.x = Input.get_action_strength("rs_right2") - Input.get_action_strength("rs_left2")
+	aim_input.y = Input.get_action_strength("rs_down2") - Input.get_action_strength("rs_up2")
+	if aim_input.x < 0:
+		isFlipped = true
+	if aim_input.x > 0:
 		isFlipped = false
 	handle_shoot()
 	apply_accel(input_axis, delta)
@@ -45,11 +51,16 @@ func handle_shoot():
 		var b = Bullet.instantiate()
 		get_tree().root.add_child(b)
 		if isFlipped:
-			muzzle.position.x = 8
-			b.set_speed(-750)
+			muzzle.position.x = -16
 		else:
-			muzzle.position.x = -8
-			b.set_speed(750)
+			muzzle.position.x = 16
+		if aim_input.x != 0 or aim_input.y != 0:
+			b.set_speed(aim_input.x, aim_input.y)
+		elif aim_input.x == 0 and aim_input.y == 0:
+			if isFlipped:
+				b.set_speed(Vector2(-1, 0))
+			else:
+				b.set_speed(Vector2(1, 0))
 		b.transform = $Muzzle.global_transform
 
 func apply_friction(input_axis, delta):
@@ -61,8 +72,8 @@ func apply_accel(input_axis, delta):
 		velocity.x = move_toward(velocity.x, SPEED * input_axis, ACCEL * delta)
 
 func update_animation(input_axis):
+	animated_sprite_2d.flip_h = isFlipped
 	if input_axis != 0:
-		animated_sprite_2d.flip_h = input_axis < 0
 		animated_sprite_2d.play("run")
 	else:
 		animated_sprite_2d.play("idle")
