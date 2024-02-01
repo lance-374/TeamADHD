@@ -19,6 +19,7 @@ func _physics_process(delta):
 	apply_gravity(delta)
 	handle_jump()
 	var input_axis = Input.get_axis("left1", "right1")
+	
 	if input_axis < 0:
 		isFlipped = true
 	if input_axis > 0:
@@ -50,14 +51,17 @@ func handle_shoot():
 	if Input.is_action_just_pressed("shoot1"):
 		var b = Bullet.instantiate()
 		get_tree().root.add_child(b)
-		
 		if isFlipped:
-			muzzle.position.x = -16
+			muzzle.position = Vector2(-16, -8)
 		else:
-			muzzle.position.x = 16
+			muzzle.position = Vector2(16, -8)
+		if Input.is_action_pressed('up1'):
+			muzzle.position = Vector2(0, -24)
+			b.set_speed(Vector2(0, -1))
+			b.rotation_degrees = rad_to_deg(atan2(0, -1))
 		if aim_input.x != 0 or aim_input.y != 0:
 			b.set_speed(aim_input)
-		elif aim_input.x == 0 and aim_input.y == 0:
+		elif aim_input.x == 0 and aim_input.y == 0 and not Input.is_action_pressed('up1'):
 			if isFlipped:
 				b.set_speed(Vector2(-1, 0))
 			else:
