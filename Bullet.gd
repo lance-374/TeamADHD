@@ -26,8 +26,7 @@ func set_speed(direction):
 		facing_left = true
 	if speed.x > 0:
 		facing_left = false
-	#sprite_2d.flip_h = direction.y == -1
 	rotation_degrees = angle
-	#print(angle)
+	print(angle)
 	sprite_2d.rotation_degrees = angle
 	collision_shape_2d.rotation_degrees = angle
