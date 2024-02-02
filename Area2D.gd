@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _on_body_entered(body):
-	if body=="player1":
+	if body == $Player1 or body == $Player2:
 		emit_signal("player out of bounds")
 	
 	

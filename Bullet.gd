@@ -14,8 +14,8 @@ func _physics_process(delta):
 	#if speed != Vector2.ZERO:
 		#look_at(global_position + speed)
 
-func _on_Bullet_body_entered(body):
-	if body == 'player2':
+func _on_body_entered(body):
+	if body == $Player1 or body == $Player2:
 		body.queue_free()
 	queue_free()
 	
@@ -27,6 +27,6 @@ func set_speed(direction):
 	if speed.x > 0:
 		facing_left = false
 	rotation_degrees = angle
-	print(angle)
+	#print(angle)
 	sprite_2d.rotation_degrees = angle
 	collision_shape_2d.rotation_degrees = angle

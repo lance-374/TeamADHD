@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dgaoedv8knbnh"]
 
-[ext_resource type="Script" path="res://player1.gd" id="1_iuvhm"]
+[ext_resource type="Script" path="res://player.gd" id="1_0w3dg"]
 [ext_resource type="Texture2D" uid="uid://cygn4xury3jvp" path="res://player2.png" id="2_yemdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k34a"]
@@ -84,7 +84,8 @@ animations = [{
 position = Vector2(0, -1)
 floor_constant_speed = true
 floor_snap_length = 2.0
-script = ExtResource("1_iuvhm")
+script = ExtResource("1_0w3dg")
+controller_id = "2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
