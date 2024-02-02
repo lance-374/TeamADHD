@@ -51,21 +51,20 @@ func handle_shoot():
 	if Input.is_action_just_pressed("shoot2"):
 		var b = Bullet.instantiate()
 		get_tree().root.add_child(b)
-		if isFlipped:
+		if isFlipped and not Input.is_action_pressed('up2') and not Input.is_action_pressed('down2'):
 			muzzle.position = Vector2(-16, -8)
-		else:
+			b.set_speed(Vector2(-1, 0))
+		elif not isFlipped and not Input.is_action_pressed('up2') and not Input.is_action_pressed('down2'):
 			muzzle.position = Vector2(16, -8)
+			b.set_speed(Vector2(1, 0))
 		if Input.is_action_pressed('up2'):
 			muzzle.position = Vector2(0, -24)
 			b.set_speed(Vector2(0, -1))
-			b.rotation_degrees = rad_to_deg(atan2(0, -1))
+		elif Input.is_action_pressed('down2'):
+			muzzle.position = Vector2(0, 16)
+			b.set_speed(Vector2(0, 1))
 		if aim_input.x != 0 or aim_input.y != 0:
 			b.set_speed(aim_input)
-		elif aim_input.x == 0 and aim_input.y == 0 and not Input.is_action_pressed('up2'):
-			if isFlipped:
-				b.set_speed(Vector2(-1, 0))
-			else:
-				b.set_speed(Vector2(1, 0))
 		b.transform = $Muzzle.global_transform
 
 func apply_friction(input_axis, delta):
