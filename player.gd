@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
-const FRICTION = 1000
-const ACCEL = 600
+const SPEED = 100.0*2
+const FRICTION = 1000*2
+const ACCEL = 600*2
 
 var aim_input = Vector2.ZERO
 @export var controller_id = "0"
-@export var jump_velocity = -300.0
+@export var jump_velocity = -300.0*2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-@export var gravity = 980
+@export var gravity = 980*2
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle = $Muzzle
