@@ -8,3 +8,7 @@ extends Node2D
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	polygon_2d.polygon = collision_polygon_2d.polygon
+	$MultiTargetCamera2D.add_target($Player1)
+	$MultiTargetCamera2D.add_target($Player2)
+	
+	
