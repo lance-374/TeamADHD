@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -300.0
-const FRICTION = 1000
-const ACCEL = 600
+const SPEED = 100.0*2
+const FRICTION = 1000*2
+const ACCEL = 600*2
 
 var aim_input = Vector2.ZERO
 @export var controller_id = "0"
+@export var jump_velocity = -300.0*2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-@export var gravity = 980
+@export var gravity = 980*2
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle = $Muzzle
@@ -48,9 +48,9 @@ func apply_gravity(delta):
 func handle_jump():
 	var jump = "jump" + controller_id
 	if is_on_floor() and Input.is_action_just_pressed(jump):
-		velocity.y = JUMP_VELOCITY
-	elif Input.is_action_just_released("jump" + controller_id) and velocity.y < JUMP_VELOCITY / 2:
-		velocity.y = JUMP_VELOCITY / 2
+		velocity.y = jump_velocity
+	elif Input.is_action_just_released("jump" + controller_id) and velocity.y < jump_velocity / 2:
+		velocity.y = jump_velocity / 2
 
 func handle_shoot():
 	var up = "up" + controller_id
@@ -84,6 +84,7 @@ func apply_accel(input_axis, delta):
 
 func update_animation(input_axis):
 	animated_sprite_2d.flip_h = isFlipped
+	animated_sprite_2d.flip_v = gravity < 0
 	if input_axis != 0:
 		animated_sprite_2d.play("run")
 	else:

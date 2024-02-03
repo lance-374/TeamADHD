@@ -1,23 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqw1k52kx64o8"]
+[gd_scene load_steps=6 format=3 uid="uid://dqw1k52kx64o8"]
 
-[ext_resource type="Script" path="res://test_level.gd" id="1_tjd8m"]
+[ext_resource type="Script" path="res://test_level.gd" id="1_xxfwk"]
 [ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://player1.tscn" id="2_0fdpx"]
 [ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://player2.tscn" id="3_75bxa"]
+[ext_resource type="PackedScene" uid="uid://cowuxagin5i37" path="res://multi_target_camera_2d.tscn" id="4_kdqy6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sufqo"]
+size = Vector2(285, 21)
 
 [node name="TestLevel" type="Node2D"]
-script = ExtResource("1_tjd8m")
+script = ExtResource("1_xxfwk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-0.916731, -0.499996)
 scale = Vector2(0.481771, 0.481771)
-polygon = PackedVector2Array(0, 0, 64, 0, 64, 320, 256, 320, 256, 256, 320, 192, 384, 256, 384, 320, 448, 320, 448, 256, 512, 224, 576, 224, 640, 128, 640, 0, 704, 0, 704, 264.039, 704, 384, 0, 384)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 320, 256, 320, 256, 256, 320, 192, 384, 256, 384, 320, 448, 320, 448, 256, 512, 224, 576, 224, 632.908, 117.276, 632.908, 1.03783, 699.33, 1.03783, 699.33, 382.962, 0, 384)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(166.5, 10.5)
+shape = SubResource("RectangleShape2D_sufqo")
 
 [node name="Player1" parent="." groups=["players"] instance=ExtResource("2_0fdpx")]
 position = Vector2(256, 96)
 
 [node name="Player2" parent="." groups=["players"] instance=ExtResource("3_75bxa")]
 position = Vector2(88, 144)
+
+[node name="MultiTargetCamera2D" parent="." instance=ExtResource("4_kdqy6")]
