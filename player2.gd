@@ -70,19 +70,3 @@ func update_animation(input_axis):
 	if not is_on_floor():
 		animated_sprite_2d.play("jump")
 
-#HEALTH BAR
-@onready var healthbar = $Hpbar
-
-
-
-func _ready():
-	var health = 100
-	healthbar.init_health(health)
-	
-#func _set_health(value):
-#	super._set_health(value)
-#	healthbar.health = health
-	
-#func _on_hurtbox_area_entered(area):
-#	health -= 1
-#	got_hit_anim_player.play("got_hit")
