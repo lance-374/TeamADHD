@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2sdarwcyh0lv"]
+[gd_scene load_steps=14 format=3 uid="uid://d2sdarwcyh0lv"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_q2q8i"]
 [ext_resource type="Texture2D" uid="uid://cj5h56ar0h5rv" path="res://player1.png" id="2_s2vkv"]
+[ext_resource type="PackedScene" path="res://Hpbar.tscn" id="3_btb1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k34a"]
 size = Vector2(8, 16)
@@ -97,3 +98,9 @@ animation = &"idle"
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(0, -8)
+
+[node name="Hpbar" parent="." instance=ExtResource("3_btb1p")]
+offset_left = -8.0
+offset_top = -21.0
+offset_right = 8.0
+offset_bottom = -20.0
