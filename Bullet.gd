@@ -14,11 +14,6 @@ func _physics_process(delta):
 	#if speed != Vector2.ZERO:
 		#look_at(global_position + speed)
 
-func _on_body_entered(body):
-	if body == $Player1 or body == $Player2:
-		body.queue_free()
-	queue_free()
-	
 func set_speed(direction):
 	var angle = rad_to_deg(atan2(direction.x, 0-direction.y))-90
 	speed = direction.normalized() * 750
@@ -30,3 +25,10 @@ func set_speed(direction):
 	#print(angle)
 	sprite_2d.rotation_degrees = angle
 	collision_shape_2d.rotation_degrees = angle
+
+func _on_body_entered(body):
+	if body.is_in_group('players'):
+		body.queue_free()
+		$/root/Level_1/MultiTargetCamera2D.remove_target(body)
+		#get_tree().quit(0)
+	queue_free()
