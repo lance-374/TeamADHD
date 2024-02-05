@@ -981,9 +981,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gr8o6")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2ewq"]
-size = Vector2(96.5001, 1129.69)
+size = Vector2(96.2501, 1129.69)
 
-[node name="Level-1" type="Node2D"]
+[node name="Level_1" type="Node2D"]
 script = ExtResource("1_cqbtg")
 
 [node name="Sky" type="Sprite2D" parent="."]
@@ -1020,28 +1020,28 @@ layer_0/tile_data = PackedInt32Array(-1245210, 0, 0, -1179674, 0, 1, -1114138, 0
 script = ExtResource("4_qcyx4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(126, -363)
+position = Vector2(128, -336)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_g2ewq")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(726, -5.99998)
+position = Vector2(688, 0)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_g2ewq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(152, 209)
+position = Vector2(152, 176.125)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_g2ewq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-457, 11.155)
+position = Vector2(-432, 16)
 shape = SubResource("RectangleShape2D_g2ewq")
 
-[node name="Player1" parent="." instance=ExtResource("5_n7dgu")]
+[node name="Player1" parent="." groups=["players"] instance=ExtResource("5_n7dgu")]
 position = Vector2(40, 120)
 
-[node name="Player2" parent="." instance=ExtResource("6_uk5v4")]
+[node name="Player2" parent="." groups=["players"] instance=ExtResource("6_uk5v4")]
 position = Vector2(0, 120)
 
 [node name="MultiTargetCamera2D" parent="." instance=ExtResource("7_8beqw")]

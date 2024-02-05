@@ -19,6 +19,8 @@ var isFlipped = false # isFlipped means facing left
 
 
 func _physics_process(delta):
+	if self == null:
+		return
 	apply_gravity(delta)
 	handle_jump()
 	var input_axis = Input.get_axis("left" + controller_id, "right" + controller_id)
@@ -38,6 +40,10 @@ func _physics_process(delta):
 	apply_friction(input_axis, delta)
 	update_animation(input_axis)
 	move_and_slide()
+	#var collision = move_and_collide(velocity * delta)
+	#if collision:
+		#velocity = velocity.bounce(collision.get_normal())
+		#rotation = velocity.angle()
 
 
 func apply_gravity(delta):
@@ -97,6 +103,8 @@ func update_animation(input_axis):
 @onready var healthbar = $Hpbar
 
 func _ready():
+	if self == null:
+		return
 	var health = 100
 	healthbar.init_health(health)
 	
