@@ -14,9 +14,13 @@ func _process(delta):
 	if !targets:
 		return
 	
+	
 	# Keep the camera centered among all targets
 	var p = Vector2.ZERO
 	for target in targets:
+		if not is_instance_valid(target):
+			remove_target(target)
+			continue
 		p += target.position
 	p /= targets.size()
 	position = lerp(position, p, move_speed * delta)

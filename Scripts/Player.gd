@@ -111,5 +111,7 @@ func update_health(h):
 	health = h
 	healthbar._set_health(health)
 	if health <= 0:
-		queue_free()
-		$/root/Level_1/MultiTargetCamera2D.remove_target(self)
+		death()
+
+func death():
+	queue_free()
