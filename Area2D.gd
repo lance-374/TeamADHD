@@ -6,9 +6,10 @@ extends Area2D
 	##if body entered the 2d Area
 	#pass
 
-#func _on_body_entered(body):
-	#if body == $Player1 or body == $Player2:
-		#emit_signal("player out of bounds")
+func _on_body_entered(body):
+	if body.is_in_group('players'):
+		body.queue_free()
+		$/root/Level_1/MultiTargetCamera2D.remove_target(body)
 	
 	
 	
