@@ -1,23 +1,19 @@
 extends CharacterBody2D
 
-const SPEED = 100.0*2
-const FRICTION = 1000*2
-const ACCEL = 600*2
+const SPEED = 200
+const FRICTION = 2000
+const ACCEL = 1200
 
 var aim_input = Vector2.ZERO
 @export var controller_id = "0"
-@export var jump_velocity = -300.0*2
-var health = 100
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-@export var gravity = 980*2
+@export var jump_velocity = -600.0
+@export var gravity = 1960
+@export var health = 100
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle = $Muzzle
 @onready var Bullet = preload("res://Objects/bullet.tscn") # Will load when parsing the script.
 var facing_left = false
-
-
 
 func _physics_process(delta):
 	if self == null:
@@ -40,23 +36,38 @@ func _physics_process(delta):
 	apply_friction(input_axis, delta)
 	update_animation(input_axis)
 	move_and_slide()
-	#var collision = move_and_collide(velocity * delta)
-	#if collision:
-		#velocity = velocity.bounce(collision.get_normal())
-		#rotation = velocity.angle()
 
 
 func apply_gravity(delta):
-	if not is_on_floor():
+	if Input.is_action_just_pressed('gravity'):
+		reverse_gravity()
+	if not is_on_floor_or_ceiling():
 		velocity.y += gravity * delta
+
+func reverse_gravity():
+	gravity *= -1
+	jump_velocity *= -1
 
 
 func handle_jump():
 	var jump = "jump" + controller_id
-	if is_on_floor() and Input.is_action_just_pressed(jump):
-		velocity.y = jump_velocity
-	elif Input.is_action_just_released("jump" + controller_id) and velocity.y < jump_velocity / 2:
+	if is_on_floor_or_ceiling() and Input.is_action_just_pressed(jump):
+		velocity.y = jump_velocity 
+	elif Input.is_action_just_released("jump" + controller_id) and jump_velocity_compare():
 		velocity.y = jump_velocity / 2
+
+func jump_velocity_compare():
+	if gravity > 0:
+		return velocity.y < jump_velocity / 2
+	else:
+		return velocity.y > jump_velocity / 2
+		
+func is_on_floor_or_ceiling():
+	if gravity > 0:
+		return is_on_floor()
+	else:
+		return is_on_ceiling()
+
 
 func handle_shoot():
 	var up = "up" + controller_id
