@@ -1,16 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2sdarwcyh0lv"]
+[gd_scene load_steps=14 format=3 uid="uid://d2sdarwcyh0lv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_q2q8i"]
-[ext_resource type="Texture2D" uid="uid://dyn0k6mfm0ovw" path="res://Assets/test robot.png" id="2_fadaq"]
 [ext_resource type="Texture2D" uid="uid://cj5h56ar0h5rv" path="res://Assets/player1.png" id="2_s2vkv"]
 [ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="3_btb1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k34a"]
 size = Vector2(8, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ceijl"]
-atlas = ExtResource("2_fadaq")
-region = Rect2(0, 0, 71, 74)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dq3w"]
+atlas = ExtResource("2_s2vkv")
+region = Rect2(0, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jogbt"]
 atlas = ExtResource("2_s2vkv")
@@ -44,7 +43,7 @@ region = Rect2(0, 0, 24, 20)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ceijl")
+"texture": SubResource("AtlasTexture_4dq3w")
 }],
 "loop": true,
 "name": &"idle",
@@ -93,7 +92,7 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_5k34a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -37)
+position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_c4h17")
 animation = &"idle"
 
