@@ -12,8 +12,6 @@ var facing_left = false
 func _physics_process(delta):
 	position += transform.x * speed.x * delta
 	position += transform.y * speed.y * delta
-	#if speed != Vector2.ZERO:
-		#look_at(global_position + speed)
 
 func set_speed(direction):
 	var angle = rad_to_deg(atan2(direction.x, 0-direction.y))-90

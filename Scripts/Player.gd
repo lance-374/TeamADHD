@@ -73,6 +73,7 @@ func handle_shoot():
 	var up = "up" + controller_id
 	var down = "down" + controller_id
 	if Input.is_action_just_pressed("shoot" + controller_id):
+		$BulletSound.play()
 		var b = Bullet.instantiate()
 		get_tree().root.add_child(b)
 		if facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):

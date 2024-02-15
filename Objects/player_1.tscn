@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2sdarwcyh0lv"]
+[gd_scene load_steps=15 format=3 uid="uid://d2sdarwcyh0lv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_q2q8i"]
 [ext_resource type="Texture2D" uid="uid://cj5h56ar0h5rv" path="res://Assets/player1.png" id="2_s2vkv"]
 [ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="3_btb1p"]
+[ext_resource type="AudioStream" uid="uid://j4x48rg1yvo7" path="res://Sounds/laser.mp3" id="4_s7v01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k34a"]
 size = Vector2(8, 16)
@@ -104,3 +105,6 @@ offset_left = -8.0
 offset_top = -21.0
 offset_right = 8.0
 offset_bottom = -20.0
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_s7v01")
