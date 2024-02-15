@@ -6,7 +6,6 @@ extends Area2D
 @onready var collision_shape_2d = $CollisionShape2D
 @export var damage = 1
 
-
 var facing_left = false
 
 func _physics_process(delta):
@@ -28,5 +27,7 @@ func _on_body_entered(body):
 	if body.is_in_group("players"):
 		body.update_health(body.health - damage)
 	elif body.is_in_group("gravity"):
+		body.update_health(body.health - damage)
+	elif body.is_in_group("vents"):
 		body.update_health(body.health - damage)
 	queue_free()

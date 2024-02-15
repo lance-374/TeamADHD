@@ -1,5 +1,4 @@
 extends Node2D
-var gravity = 1
 @onready var player_1 = $Player1
 @onready var player_2 = $Player2
 
