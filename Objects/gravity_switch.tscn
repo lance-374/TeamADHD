@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bet80bmcridai" path="res://Assets/gravity_switch_on.png" id="3_f4107"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6o0u"]
+size = Vector2(32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bny87"]
 atlas = ExtResource("2_vacwl")
