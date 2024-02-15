@@ -39,8 +39,6 @@ func _physics_process(delta):
 
 
 func apply_gravity(delta):
-	if Input.is_action_just_pressed('gravity'):
-		reverse_gravity()
 	if not is_on_floor_or_ceiling():
 		velocity.y += gravity * delta
 

@@ -1,0 +1,10 @@
+Keybindings
+Player 1
+WASD move
+E jump
+F shoot
+
+Player 2
+IJKL move
+H shoot
+U jump
