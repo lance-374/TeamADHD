@@ -75,16 +75,14 @@ func handle_shoot():
 		var b = Bullet.instantiate()
 		get_tree().root.add_child(b)
 		if facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):
-			muzzle.position = Vector2(-16, -8)
+			muzzle.position = Vector2(-18, -63)
 			b.set_speed(Vector2(-1, 0))
 		elif not facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):
-			muzzle.position = Vector2(16, -8)
+			muzzle.position = Vector2(28, -63)
 			b.set_speed(Vector2(1, 0))
 		if Input.is_action_pressed(up):
-			muzzle.position = Vector2(0, -24)
 			b.set_speed(Vector2(0, -1))
 		elif Input.is_action_pressed(down):
-			muzzle.position = Vector2(0, 16)
 			b.set_speed(Vector2(0, 1))
 		if aim_input.x != 0 or aim_input.y != 0:
 			b.set_speed(aim_input)
