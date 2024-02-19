@@ -30,4 +30,6 @@ func _on_body_entered(body):
 		body.update_health(body.health - damage)
 	elif body.is_in_group("vents"):
 		body.update_health(body.health - damage)
+	elif body.is_in_group("jukebox"):
+		body.toggle()
 	queue_free()

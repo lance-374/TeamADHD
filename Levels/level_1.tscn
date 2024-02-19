@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://4ichd6x72ed7"]
+[gd_scene load_steps=20 format=3 uid="uid://4ichd6x72ed7"]
 
 [ext_resource type="Texture2D" uid="uid://bqipd0nkunjgv" path="res://Assets/sky.png" id="1_5dh1w"]
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_cqbtg"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cowuxagin5i37" path="res://Objects/multi_target_camera_2d.tscn" id="7_8beqw"]
 [ext_resource type="PackedScene" uid="uid://c2dh71qqifo2m" path="res://Objects/gravity_switch.tscn" id="9_8sgr7"]
 [ext_resource type="PackedScene" uid="uid://db6jf21nrfg8y" path="res://Objects/vent.tscn" id="10_u42op"]
+[ext_resource type="PackedScene" uid="uid://bnw2xwihbny8t" path="res://Objects/jukebox.tscn" id="11_h2ngv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gr8o6"]
 texture = ExtResource("3_ldghs")
@@ -1076,5 +1077,8 @@ position = Vector2(-16, 144)
 
 [node name="Vent2" parent="." groups=["vents"] instance=ExtResource("10_u42op")]
 position = Vector2(16, 144)
+
+[node name="Jukebox" parent="." groups=["jukebox"] instance=ExtResource("11_h2ngv")]
+position = Vector2(240, 128)
 
 [connection signal="body_entered" from="OutOfBounds" to="OutOfBounds" method="_on_body_entered"]
