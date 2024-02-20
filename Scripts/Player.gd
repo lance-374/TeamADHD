@@ -63,7 +63,6 @@ func _physics_process(delta):
 		healthbar.position = Vector2(-32, -52)
 		muzzle.position = Vector2(26, -24)
 
-
 func apply_gravity(delta):
 	if not is_on_floor_or_ceiling():
 		velocity.y += gravity * delta
