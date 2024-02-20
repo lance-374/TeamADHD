@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkx8tw1qcgucq"]
+[gd_scene load_steps=5 format=3 uid="uid://dkx8tw1qcgucq"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_vi3tj"]
 [ext_resource type="Texture2D" uid="uid://cxgqyr6nl1to" path="res://Assets/laser.png" id="2_4tbo2"]
+[ext_resource type="AudioStream" uid="uid://j4x48rg1yvo7" path="res://Sounds/laser.mp3" id="3_402bm"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8c1kj"]
 b = Vector2(16, 0)
@@ -17,5 +18,8 @@ texture = ExtResource("2_4tbo2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 0)
 shape = SubResource("SegmentShape2D_8c1kj")
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_402bm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2dh71qqifo2m"]
+[gd_scene load_steps=9 format=3 uid="uid://c2dh71qqifo2m"]
 
 [ext_resource type="Script" path="res://GravitySwitch.gd" id="1_8m5rf"]
 [ext_resource type="Texture2D" uid="uid://bbfglmuvfu1lc" path="res://Assets/gravity_switch_off.png" id="2_vacwl"]
 [ext_resource type="Texture2D" uid="uid://bet80bmcridai" path="res://Assets/gravity_switch_on.png" id="3_f4107"]
+[ext_resource type="AudioStream" uid="uid://c1aelpdka6qn3" path="res://Sounds/gravity.mp3" id="4_f3f4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6o0u"]
 size = Vector2(32, 32)
@@ -43,3 +44,6 @@ shape = SubResource("RectangleShape2D_w6o0u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_equju")
 animation = &"off"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_f3f4y")
