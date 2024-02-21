@@ -138,4 +138,5 @@ func update_health(h):
 
 func death():
 	queue_free()
+	get_tree().change_scene_to_file("res://Levels/title_screen.tscn")
 	#TODO add death animation here
