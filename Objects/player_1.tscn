@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://d2sdarwcyh0lv"]
+[gd_scene load_steps=35 format=3 uid="uid://d2sdarwcyh0lv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_q2q8i"]
 [ext_resource type="Texture2D" uid="uid://nol374qioihd" path="res://Assets/BoxRobot Sprite Sheets/type R/4R_Idle.png" id="2_uj1m6"]
 [ext_resource type="Texture2D" uid="uid://dcoe4klimrof8" path="res://Assets/BoxRobot Sprite Sheets/type R/10R_Jump.png" id="3_baoxi"]
 [ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="3_btb1p"]
 [ext_resource type="Texture2D" uid="uid://01rsvrfo2n5e" path="res://Assets/BoxRobot Sprite Sheets/type R/5R_Move.png" id="4_qdga1"]
+[ext_resource type="AudioStream" uid="uid://j4x48rg1yvo7" path="res://Sounds/laser.mp3" id="6_a0jj8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_msggw"]
 atlas = ExtResource("2_uj1m6")
@@ -232,3 +233,6 @@ offset_bottom = -48.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_nes68")
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_a0jj8")

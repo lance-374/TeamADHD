@@ -16,6 +16,7 @@ var gravity_flipped = false
 @onready var Bullet = preload("res://Objects/bullet.tscn") # Will load when parsing the script
 @onready var healthbar = $HealthBar
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var bullet_sound = $BulletSound
 var facing_left = false
 
 func _ready():
@@ -45,7 +46,7 @@ func _physics_process(delta):
 	update_animation(input_axis)
 	move_and_slide()
 	
-#	update positions of everything TODO, improve this using PositionNode2D
+#	update positions of everything, TODO improve this using PositionNode2D
 	if facing_left and gravity_flipped:
 		collision_shape_2d.position = Vector2(14,-40)
 		healthbar.position = Vector2(-20, 12)
@@ -96,6 +97,7 @@ func handle_shoot():
 	var up = "up" + controller_id
 	var down = "down" + controller_id
 	if Input.is_action_just_pressed("shoot" + controller_id):
+		bullet_sound.play()
 		var b = Bullet.instantiate()
 		get_tree().root.add_child(b)
 		if facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):

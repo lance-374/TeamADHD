@@ -4,13 +4,9 @@ extends Area2D
 
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
-@onready var bullet_sound = $BulletSound
 @export var damage = 1
 
 var facing_left = false
-
-func _ready():
-	bullet_sound.play()
 
 func _physics_process(delta):
 	position += transform.x * speed.x * delta
