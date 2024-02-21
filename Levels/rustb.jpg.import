@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://digdfifg08j5r"
-path="res://.godot/imported/boom_box.png-e7bdcdcff1cb9e8d3f2450e7bf8572d7.ctex"
+uid="uid://1alowfxom0da"
+path="res://.godot/imported/rustb.jpg-c3bc453e673d194f2ef42ada71b2a5f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/boom_box.png"
-dest_files=["res://.godot/imported/boom_box.png-e7bdcdcff1cb9e8d3f2450e7bf8572d7.ctex"]
+source_file="res://Levels/rustb.jpg"
+dest_files=["res://.godot/imported/rustb.jpg-c3bc453e673d194f2ef42ada71b2a5f9.ctex"]
 
 [params]
 

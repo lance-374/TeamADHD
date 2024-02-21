@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://digdfifg08j5r"
-path="res://.godot/imported/boom_box.png-e7bdcdcff1cb9e8d3f2450e7bf8572d7.ctex"
+uid="uid://4sg7wrstqjnc"
+path="res://.godot/imported/Buildings.png-da51909f87c6f9a81cf43f549698643f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/boom_box.png"
-dest_files=["res://.godot/imported/boom_box.png-e7bdcdcff1cb9e8d3f2450e7bf8572d7.ctex"]
+source_file="res://Assets/Buildings.png"
+dest_files=["res://.godot/imported/Buildings.png-da51909f87c6f9a81cf43f549698643f.ctex"]
 
 [params]
 
