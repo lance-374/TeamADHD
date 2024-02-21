@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Jukebox.gd" id="1_7tlsh"]
 [ext_resource type="Texture2D" uid="uid://niq6cvah3djs" path="res://Assets/boom_box.png" id="2_66mcd"]
-[ext_resource type="AudioStream" uid="uid://cgupdoksgcglt" path="res://Sounds/Music/Title_Screen_Background_Music.mp3" id="3_or2xv"]
+[ext_resource type="AudioStream" uid="uid://cgupdoksgcglt" path="res://Sounds/Music/title_screen.mp3" id="3_or2xv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlo8"]
 size = Vector2(30, 14)
