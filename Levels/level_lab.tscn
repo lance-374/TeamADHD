@@ -1,9 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://drxybjftgojvf"]
+[gd_scene load_steps=26 format=3 uid="uid://drxybjftgojvf"]
 
 [ext_resource type="PackedScene" uid="uid://cowuxagin5i37" path="res://Objects/multi_target_camera_2d.tscn" id="1_0buyy"]
 [ext_resource type="Texture2D" uid="uid://4sg7wrstqjnc" path="res://Assets/Buildings.png" id="1_bff0b"]
 [ext_resource type="Script" path="res://Levels/level_lab.gd" id="1_iuqjv"]
-[ext_resource type="PackedScene" path="res://Objects/vent.tscn" id="2_2fwvd"]
+[ext_resource type="PackedScene" uid="uid://db6jf21nrfg8y" path="res://Objects/vent.tscn" id="2_2fwvd"]
 [ext_resource type="Texture2D" uid="uid://ixphl48bu6wm" path="res://Assets/Tiles.png" id="2_xi7ja"]
 [ext_resource type="Texture2D" uid="uid://bmdlqktuy7o11" path="res://Assets/spritesheet.png" id="3_7jlnj"]
 [ext_resource type="Texture2D" uid="uid://dhqls5pv6s78n" path="res://Assets/Props-01.png" id="6_14fsd"]
@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://civ22psorajts" path="res://Assets/_1_2.png" id="8_5sk45"]
 [ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://Objects/player_1.tscn" id="8_ey2ii"]
 [ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://Objects/player_2.tscn" id="9_0b10p"]
-[ext_resource type="PackedScene" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
-[ext_resource type="PackedScene" path="res://Objects/jukebox.tscn" id="13_prffe"]
+[ext_resource type="PackedScene" uid="uid://c2dh71qqifo2m" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
+[ext_resource type="PackedScene" uid="uid://bnw2xwihbny8t" path="res://Objects/jukebox.tscn" id="13_prffe"]
 [ext_resource type="Script" path="res://Scripts/OutOfBounds.gd" id="14_yqki6"]
 [ext_resource type="Texture2D" uid="uid://dkcafmssdp6ss" path="res://Assets/composed-bg.png" id="15_tihmt"]
 
@@ -25878,7 +25878,12 @@ sources/5 = SubResource("TileSetAtlasSource_0uc73")
 sources/6 = SubResource("TileSetAtlasSource_gkbmw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkuv0"]
-size = Vector2(508, 84.5)
+size = Vector2(1483, 84.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq70e"]
+size = Vector2(428, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56vbd"]
 
 [node name="level lab" type="Node2D"]
 script = ExtResource("1_iuqjv")
@@ -25944,7 +25949,7 @@ position = Vector2(-65, -246)
 position = Vector2(-65, -279)
 
 [node name="Vent14" parent="." groups=["vents"] instance=ExtResource("2_2fwvd")]
-position = Vector2(-64, -290)
+position = Vector2(-65, -290)
 
 [node name="GravitySwitch2" parent="." groups=["gravity"] instance=ExtResource("12_5kylx")]
 position = Vector2(-430, -239)
@@ -25954,7 +25959,7 @@ rotation = -3.14159
 position = Vector2(49, -448)
 
 [node name="Vent16" parent="." groups=["vents"] instance=ExtResource("2_2fwvd")]
-position = Vector2(82, -449)
+position = Vector2(81, -448)
 
 [node name="Jukebox" parent="." groups=["jukebox"] instance=ExtResource("13_prffe")]
 position = Vector2(-193, 94)
@@ -25963,7 +25968,7 @@ position = Vector2(-193, 94)
 script = ExtResource("14_yqki6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBounds"]
-position = Vector2(568, -492)
+position = Vector2(-84.5, -492)
 shape = SubResource("RectangleShape2D_lkuv0")
 
 [node name="Composed-bg" type="Sprite2D" parent="."]
@@ -25972,5 +25977,12 @@ light_mask = 0
 position = Vector2(-90, -645.75)
 scale = Vector2(5.76953, 5.18466)
 texture = ExtResource("15_tihmt")
+
+[node name="tempCollision" type="CollisionShape2D" parent="."]
+position = Vector2(312, -443)
+shape = SubResource("RectangleShape2D_kq70e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_56vbd")
 
 [connection signal="body_entered" from="OutOfBounds" to="OutOfBounds" method="_on_body_entered"]

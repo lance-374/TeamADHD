@@ -26,7 +26,7 @@ func toggle_fullscreen():
 		fullscreen = true
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Levels/level_1.tscn")
+	get_tree().change_scene_to_file("res://Levels/level_lab.tscn")
 	
 func _on_option_button_pressed():
 	toggle_fullscreen()
