@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://drxybjftgojvf"]
+[gd_scene load_steps=24 format=3 uid="uid://drxybjftgojvf"]
 
 [ext_resource type="PackedScene" uid="uid://cowuxagin5i37" path="res://Objects/multi_target_camera_2d.tscn" id="1_0buyy"]
 [ext_resource type="Texture2D" uid="uid://4sg7wrstqjnc" path="res://Assets/Buildings.png" id="1_bff0b"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
 [ext_resource type="PackedScene" path="res://Objects/jukebox.tscn" id="13_prffe"]
 [ext_resource type="Script" path="res://Scripts/OutOfBounds.gd" id="14_yqki6"]
+[ext_resource type="Texture2D" uid="uid://dkcafmssdp6ss" path="res://Assets/composed-bg.png" id="15_tihmt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xlii1"]
 texture = ExtResource("3_7jlnj")
@@ -25916,7 +25917,7 @@ position = Vector2(395, -319)
 position = Vector2(496, -289)
 
 [node name="Vent5" parent="." groups=["vents"] instance=ExtResource("2_2fwvd")]
-position = Vector2(497, -320)
+position = Vector2(496, -321)
 
 [node name="Vent6" parent="." groups=["vents"] instance=ExtResource("2_2fwvd")]
 position = Vector2(-65, -47)
@@ -25964,5 +25965,12 @@ script = ExtResource("14_yqki6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBounds"]
 position = Vector2(568, -492)
 shape = SubResource("RectangleShape2D_lkuv0")
+
+[node name="Composed-bg" type="Sprite2D" parent="."]
+show_behind_parent = true
+light_mask = 0
+position = Vector2(-90, -645.75)
+scale = Vector2(5.76953, 5.18466)
+texture = ExtResource("15_tihmt")
 
 [connection signal="body_entered" from="OutOfBounds" to="OutOfBounds" method="_on_body_entered"]

@@ -4,7 +4,7 @@ extends Area2D
 @onready var bullet_sound = $BulletSound
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
-@export var damage = 1
+@export var damage = 2
 
 var facing_left = false
 var entered_body = false

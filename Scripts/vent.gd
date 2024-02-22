@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var health = 20
+@export var health = 7
 
 func update_health(h):
 	health = h
