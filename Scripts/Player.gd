@@ -16,6 +16,7 @@ var gravity_flipped = false
 @onready var Bullet = preload("res://Objects/bullet.tscn") # Will load when parsing the script
 @onready var healthbar = $HealthBar
 @onready var collision_shape_2d = $CollisionShape2D
+#@onready var bullet_sound = $BulletSound
 var facing_left = false
 
 func _ready():
@@ -45,7 +46,7 @@ func _physics_process(delta):
 	update_animation(input_axis)
 	move_and_slide()
 	
-#	update positions of everything TODO, improve this using PositionNode2D
+#	update positions of everything, TODO improve this using PositionNode2D
 	if facing_left and gravity_flipped:
 		collision_shape_2d.position = Vector2(14,-40)
 		healthbar.position = Vector2(-20, 12)
@@ -138,4 +139,5 @@ func update_health(h):
 
 func death():
 	queue_free()
+	get_tree().change_scene_to_file("res://Levels/title_screen.tscn")
 	#TODO add death animation here
