@@ -74,11 +74,13 @@ theme_override_font_sizes/font_size = 30
 text = "PLAY"
 
 [node name="option_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "FULLSCREEN"
 
 [node name="quit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "QUIT"

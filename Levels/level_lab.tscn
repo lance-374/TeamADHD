@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://civ22psorajts" path="res://Assets/_1_2.png" id="8_5sk45"]
 [ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://Objects/player_1.tscn" id="8_ey2ii"]
 [ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://Objects/player_2.tscn" id="9_0b10p"]
-[ext_resource type="PackedScene" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
+[ext_resource type="PackedScene" uid="uid://c2dh71qqifo2m" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
 [ext_resource type="PackedScene" uid="uid://bnw2xwihbny8t" path="res://Objects/jukebox.tscn" id="13_prffe"]
 [ext_resource type="Script" path="res://Scripts/OutOfBounds.gd" id="14_yqki6"]
 [ext_resource type="Texture2D" uid="uid://dkcafmssdp6ss" path="res://Assets/composed-bg.png" id="15_tihmt"]
@@ -25910,7 +25910,8 @@ position = Vector2(348, -69)
 [node name="MultiTargetCamera2D" parent="." instance=ExtResource("1_0buyy")]
 
 [node name="GravitySwitch" parent="." groups=["gravity"] instance=ExtResource("12_5kylx")]
-position = Vector2(445, -289)
+position = Vector2(445, -320)
+rotation = 3.14159
 
 [node name="Vent2" parent="." groups=["vents"] instance=ExtResource("2_2fwvd")]
 position = Vector2(395, -287)

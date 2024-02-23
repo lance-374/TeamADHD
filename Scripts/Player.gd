@@ -28,7 +28,7 @@ func _physics_process(delta):
 		return
 	apply_gravity(delta)
 	handle_jump()
-	var input_axis = Input.get_axis("ls_left" + controller_id, "ls_right" + controller_id)
+	var input_axis = Input.get_axis("left" + controller_id, "right" + controller_id)
 	if input_axis < 0:
 		facing_left = true
 	if input_axis > 0:
