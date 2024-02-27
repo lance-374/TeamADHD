@@ -41,4 +41,5 @@ func _on_body_entered(body):
 		body.toggle()
 	set_speed(Vector2.ZERO)
 	hide()
+	collision_shape_2d.queue_free()
 	entered_body = true

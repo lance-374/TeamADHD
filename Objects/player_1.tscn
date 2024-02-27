@@ -218,7 +218,7 @@ controller_id = "1"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -19)
 sprite_frames = SubResource("SpriteFrames_c4h17")
-animation = &"idle"
+animation = &"jump"
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(20, -24)
