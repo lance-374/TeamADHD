@@ -17,8 +17,8 @@ var gravity_flipped = false
 @onready var healthbar = $HealthBar
 @onready var collision_shape_2d = $CollisionShape2D
 var facing_left = false
-
-var moonwalk = true
+var blocking = false
+var moonwalk = false
 
 func _ready():
 	if self == null:
@@ -43,6 +43,8 @@ func _physics_process(delta):
 		facing_left = false
 	if input_axis > 0 and moonwalk:
 		facing_left = true
+	if blocking:
+		input_axis = 0
 	aim_input.x = Input.get_action_strength("rs_right" + controller_id) - Input.get_action_strength("rs_left" + controller_id)
 	aim_input.y = Input.get_action_strength("rs_down" + controller_id) - Input.get_action_strength("rs_up" + controller_id)
 	if aim_input.x < 0:
@@ -53,6 +55,7 @@ func _physics_process(delta):
 	apply_acceleration(input_axis, delta)
 	apply_friction(input_axis, delta)
 	update_animation(input_axis)
+	handle_block()
 	move_and_slide()
 	
 #	update positions of everything, TODO improve this using PositionNode2D
@@ -76,6 +79,13 @@ func _physics_process(delta):
 func apply_gravity(delta):
 	if not is_on_floor_or_ceiling():
 		velocity.y += gravity * delta
+
+func handle_block():
+	if Input.is_action_pressed("block" + controller_id):
+		animated_sprite_2d.play("block")
+		blocking = true
+	else:
+		blocking = false
 
 func reverse_gravity():
 	gravity *= -1
@@ -142,6 +152,15 @@ func update_animation(input_axis):
 
 func update_health(h):
 	health = h
+	healthbar._set_health(health)
+	if health <= 0:
+		death()
+
+func subtract_health(h):
+	if not blocking:
+		health -= h
+	else:
+		health -= h/2
 	healthbar._set_health(health)
 	if health <= 0:
 		death()

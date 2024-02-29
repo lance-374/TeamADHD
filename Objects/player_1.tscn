@@ -1,10 +1,17 @@
-[gd_scene load_steps=34 format=3 uid="uid://d2sdarwcyh0lv"]
+[gd_scene load_steps=39 format=3 uid="uid://d2sdarwcyh0lv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_q2q8i"]
 [ext_resource type="Texture2D" uid="uid://nol374qioihd" path="res://Assets/BoxRobot Sprite Sheets/type R/4R_Idle.png" id="2_uj1m6"]
+[ext_resource type="Texture2D" uid="uid://der1grn3kk0qh" path="res://Assets/BoxRobot Sprite Sheets/8_Attack_3b.png" id="2_wp70l"]
 [ext_resource type="Texture2D" uid="uid://dcoe4klimrof8" path="res://Assets/BoxRobot Sprite Sheets/type R/10R_Jump.png" id="3_baoxi"]
 [ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="3_btb1p"]
 [ext_resource type="Texture2D" uid="uid://01rsvrfo2n5e" path="res://Assets/BoxRobot Sprite Sheets/type R/5R_Move.png" id="4_qdga1"]
+[ext_resource type="Texture2D" uid="uid://do1bpvy7mj8c7" path="res://Assets/shield_cooled.png" id="6_kijql"]
+[ext_resource type="Texture2D" uid="uid://cwm73ggmx2r3s" path="res://Assets/shield_cooling.png" id="7_hr8cv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k41yh"]
+atlas = ExtResource("2_wp70l")
+region = Rect2(144, 0, 144, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_msggw"]
 atlas = ExtResource("2_uj1m6")
@@ -114,6 +121,14 @@ region = Rect2(0, 0, 144, 144)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_k41yh")
+}],
+"loop": true,
+"name": &"block",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_msggw")
 }, {
 "duration": 1.0,
@@ -209,6 +224,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nes68"]
 size = Vector2(39, 68)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_52ily"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kijql")
+}],
+"loop": true,
+"name": &"cooled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_hr8cv")
+}],
+"loop": true,
+"name": &"cooling",
+"speed": 5.0
+}]
+
 [node name="Player1" type="CharacterBody2D"]
 floor_constant_speed = true
 floor_snap_length = 2.0
@@ -218,7 +252,7 @@ controller_id = "1"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -19)
 sprite_frames = SubResource("SpriteFrames_c4h17")
-animation = &"jump"
+animation = &"block"
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(20, -24)
@@ -232,3 +266,9 @@ offset_bottom = -48.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_nes68")
+
+[node name="ShieldIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(-26, -64)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_52ily")
+animation = &"cooled"

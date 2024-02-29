@@ -32,7 +32,7 @@ func set_speed(direction):
 
 func _on_body_entered(body):
 	if body.is_in_group("players"):
-		body.update_health(body.health - damage)
+		body.subtract_health(damage)
 	elif body.is_in_group("gravity"):
 		body.update_health(body.health - damage)
 	elif body.is_in_group("vents"):
