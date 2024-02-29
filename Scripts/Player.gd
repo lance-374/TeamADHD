@@ -18,6 +18,8 @@ var gravity_flipped = false
 @onready var collision_shape_2d = $CollisionShape2D
 var facing_left = false
 
+var moonwalk = true
+
 func _ready():
 	if self == null:
 		return
@@ -28,11 +30,19 @@ func _physics_process(delta):
 		return
 	apply_gravity(delta)
 	handle_jump()
-	var input_axis = Input.get_axis("left" + controller_id, "right" + controller_id)
-	if input_axis < 0:
+	var input_axis = 0
+	if not moonwalk:
+		input_axis = Input.get_axis("left" + controller_id, "right" + controller_id)
+	else:
+		input_axis = Input.get_axis("right" + controller_id, "left" + controller_id)
+	if input_axis < 0 and not moonwalk:
 		facing_left = true
-	if input_axis > 0:
+	if input_axis > 0 and not moonwalk:
 		facing_left = false
+	if input_axis < 0 and moonwalk:
+		facing_left = false
+	if input_axis > 0 and moonwalk:
+		facing_left = true
 	aim_input.x = Input.get_action_strength("rs_right" + controller_id) - Input.get_action_strength("rs_left" + controller_id)
 	aim_input.y = Input.get_action_strength("rs_down" + controller_id) - Input.get_action_strength("rs_up" + controller_id)
 	if aim_input.x < 0:
