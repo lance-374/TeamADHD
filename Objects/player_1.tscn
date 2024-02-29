@@ -1,16 +1,16 @@
 [gd_scene load_steps=39 format=3 uid="uid://d2sdarwcyh0lv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_q2q8i"]
+[ext_resource type="Texture2D" uid="uid://bow76bbk7n2ha" path="res://Assets/BoxRobot Sprite Sheets/type R/8R_Attack_3b.png" id="2_pvben"]
 [ext_resource type="Texture2D" uid="uid://nol374qioihd" path="res://Assets/BoxRobot Sprite Sheets/type R/4R_Idle.png" id="2_uj1m6"]
-[ext_resource type="Texture2D" uid="uid://der1grn3kk0qh" path="res://Assets/BoxRobot Sprite Sheets/8_Attack_3b.png" id="2_wp70l"]
 [ext_resource type="Texture2D" uid="uid://dcoe4klimrof8" path="res://Assets/BoxRobot Sprite Sheets/type R/10R_Jump.png" id="3_baoxi"]
 [ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="3_btb1p"]
 [ext_resource type="Texture2D" uid="uid://01rsvrfo2n5e" path="res://Assets/BoxRobot Sprite Sheets/type R/5R_Move.png" id="4_qdga1"]
 [ext_resource type="Texture2D" uid="uid://do1bpvy7mj8c7" path="res://Assets/shield_cooled.png" id="6_kijql"]
 [ext_resource type="Texture2D" uid="uid://cwm73ggmx2r3s" path="res://Assets/shield_cooling.png" id="7_hr8cv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k41yh"]
-atlas = ExtResource("2_wp70l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6niea"]
+atlas = ExtResource("2_pvben")
 region = Rect2(144, 0, 144, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_msggw"]
@@ -121,7 +121,7 @@ region = Rect2(0, 0, 144, 144)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k41yh")
+"texture": SubResource("AtlasTexture_6niea")
 }],
 "loop": true,
 "name": &"block",
