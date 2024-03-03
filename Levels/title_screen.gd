@@ -32,4 +32,4 @@ func _on_option_button_pressed():
 	toggle_fullscreen()
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Levels/title_screen.tscn")
