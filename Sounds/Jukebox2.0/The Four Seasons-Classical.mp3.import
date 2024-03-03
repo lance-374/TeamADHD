@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://e75u1n36tp76"
+path="res://.godot/imported/The Four Seasons-Classical.mp3-4edc8cc762f74c66ae2c9c5ba95e2359.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Jukebox2.0/The Four Seasons-Classical.mp3"
+dest_files=["res://.godot/imported/The Four Seasons-Classical.mp3-4edc8cc762f74c66ae2c9c5ba95e2359.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

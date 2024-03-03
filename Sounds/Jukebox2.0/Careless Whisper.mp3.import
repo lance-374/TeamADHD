@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jdnvhxbvcafh"
+path="res://.godot/imported/Careless Whisper.mp3-4c3019d7e32a404720f0f4b29198b22c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Jukebox2.0/Careless Whisper.mp3"
+dest_files=["res://.godot/imported/Careless Whisper.mp3-4c3019d7e32a404720f0f4b29198b22c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
