@@ -167,5 +167,8 @@ func subtract_health(h):
 
 func death():
 	queue_free()
-	get_tree().change_scene_to_file("res://Levels/gameover_screen.tscn")
+	if controller_id == "1":
+		get_tree().change_scene_to_file("res://Levels/blaze_wins_screen.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Levels/echo_wins_screen.tscn")
 	#TODO add death animation here
