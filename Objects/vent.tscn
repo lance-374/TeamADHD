@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://db6jf21nrfg8y"]
+
+[ext_resource type="Script" path="res://Scripts/vent.gd" id="1_jy03o"]
+[ext_resource type="Texture2D" uid="uid://443dj2e5j0qm" path="res://Assets/vent_1.png" id="1_w40un"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_370sf"]
+size = Vector2(32, 32)
+
+[node name="Vent" type="StaticBody2D"]
+script = ExtResource("1_jy03o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_370sf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w40un")
