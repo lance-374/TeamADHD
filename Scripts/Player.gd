@@ -31,6 +31,7 @@ var starting_position
 var health
 var shield
 var recharge
+var current_bullet
 
 func _ready():
 	if self == null:
@@ -40,6 +41,9 @@ func _ready():
 	facing_left = starting_facing_left
 	recharge = starting_recharge
 	starting_position = position
+	current_bullet = Bullet.instantiate()
+	current_bullet.set_player(controller_id)
+	get_tree().root.add_child(current_bullet)
 	healthbar.init_health(health)
 	shieldbar.init_health(shield)
 	shield_cooldown.start()
@@ -141,6 +145,7 @@ func handle_shoot():
 	var down = "down" + controller_id
 	if Input.is_action_just_pressed("shoot" + controller_id) and not dead:
 		var b = Bullet.instantiate()
+		b.set_player(controller_id)
 		get_tree().root.add_child(b)
 		if facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):
 			b.set_speed(Vector2(-1, 0))

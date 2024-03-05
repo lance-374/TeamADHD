@@ -8,9 +8,13 @@ var damage = 2
 
 var facing_left = false
 var entered_body = false
+var player = "0"
 
 func _ready():
 	bullet_sound.play()
+
+func set_player(id):
+	player = id
 
 func _physics_process(delta):
 	position += transform.x * speed.x * delta
@@ -29,9 +33,12 @@ func set_speed(direction):
 	rotation_degrees = angle
 	sprite_2d.rotation_degrees = angle
 	collision_shape_2d.rotation_degrees = angle
+	print(player)
 
 func _on_body_entered(body):
 	if body.is_in_group("players"):
+		if body.controller_id == player:
+			return # do nothing, don't queue_free()
 		body.subtract_health(damage)
 	elif body.is_in_group("gravity"):
 		body.update_health(body.health - damage)
