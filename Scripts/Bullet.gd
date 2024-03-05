@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var speed = Vector2(750, 0)
+var speed = Vector2(0, 0)
 @onready var bullet_sound = $BulletSound
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
-@export var damage = 2
+var damage = 2
 
 var facing_left = false
 var entered_body = false

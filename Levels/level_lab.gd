@@ -10,4 +10,4 @@ func _ready():
 	$MultiTargetCamera2D.limit_left= r.position.x * $"background layer".tile_set.tile_size.x
 	$MultiTargetCamera2D.limit_right = r.end.x * $"background layer".tile_set.tile_size.x
 	$MultiTargetCamera2D.limit_bottom = r.end.y * $"background layer".tile_set.tile_size.y
-	#$MultiTargetCamera2D.limit_top = -320 #r.position.y * $TileMap.tile_set.tile_size.y
+	$MultiTargetCamera2D.limit_top = r.position.y * $"background layer".tile_set.tile_size.y
