@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://oeys6c02aoh5"]
+
+[ext_resource type="Texture2D" uid="uid://ct2w7c5eaxkci" path="res://PNG/Space_Stars6.png" id="1_7ytyp"]
+[ext_resource type="Script" path="res://lore_3.gd" id="1_yijhy"]
+[ext_resource type="Texture2D" uid="uid://01rsvrfo2n5e" path="res://Assets/BoxRobot Sprite Sheets/type R/5R_Move.png" id="2_wn03u"]
+[ext_resource type="Texture2D" uid="uid://dsvptc0mlr3tk" path="res://Assets/BoxRobot Sprite Sheets/7_Attack_2a.png" id="4_kncof"]
+
+[node name="lore3" type="Node2D"]
+script = ExtResource("1_yijhy")
+
+[node name="SpaceStars6" type="Sprite2D" parent="."]
+position = Vector2(428, 246.5)
+scale = Vector2(13.5625, 7.92186)
+texture = ExtResource("1_7ytyp")
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 264.0
+offset_top = 26.0
+offset_right = 647.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 27
+text = "Zephyr has sent out Blaze to capture Echo, who is seen as a traitor and a threat to his kingdom"
+wrap_mode = 1
+
+[node name="5rMove" type="Sprite2D" parent="."]
+position = Vector2(-1035, 339)
+scale = Vector2(3.19097, 4.08333)
+texture = ExtResource("2_wn03u")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 322.0
+offset_top = 392.0
+offset_right = 524.0
+offset_bottom = 478.0
+theme_override_font_sizes/font_size = 29
+text = "LETS FIGHT!!!"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 857.0
+offset_bottom = 488.0
+
+[node name="Button" type="Button" parent="MarginContainer"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 2
+
+[node name="7Attack2a" type="Sprite2D" parent="."]
+position = Vector2(1929, 342)
+scale = Vector2(3.33738, 4.29861)
+texture = ExtResource("4_kncof")
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

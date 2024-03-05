@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl5dyy8tepqq6"]
+
+[ext_resource type="Texture2D" uid="uid://ct2w7c5eaxkci" path="res://PNG/Space_Stars6.png" id="1_mk8e0"]
+[ext_resource type="Texture2D" uid="uid://cu0s5e03bvn6w" path="res://Assets/BoxRobot Sprite Sheets/type R/14R_wreck.png" id="2_3lvku"]
+
+[sub_resource type="GDScript" id="GDScript_hmawn"]
+script/source = "extends Node2D
+
+
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file(\"res://lore_3.tscn\")
+"
+
+[node name="lore2" type="Node2D"]
+script = SubResource("GDScript_hmawn")
+
+[node name="SpaceStars6" type="Sprite2D" parent="."]
+position = Vector2(423, 241.5)
+scale = Vector2(13.4063, 7.76561)
+texture = ExtResource("1_mk8e0")
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 215.0
+offset_top = 370.0
+offset_right = 577.0
+offset_bottom = 427.0
+theme_override_font_sizes/font_size = 27
+text = ": WHY I HAVE TO DO THIS?"
+wrap_mode = 1
+
+[node name="14rWreck" type="Sprite2D" parent="."]
+position = Vector2(-363, 327)
+scale = Vector2(2.18924, 2.47222)
+texture = ExtResource("2_3lvku")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 99.0
+offset_top = 12.0
+offset_right = 781.0
+offset_bottom = 276.0
+theme_override_font_sizes/font_size = 31
+text = "Once day, human have managed to hack into Echo system. It starts to question his orders and develops a sense of empathy for the humans. He decides to join the resistance and fight against Zephyr.
+"
+wrap_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 859.0
+offset_bottom = 485.0
+
+[node name="Button" type="Button" parent="MarginContainer"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

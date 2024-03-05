@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://f5shnwmqbuvw"]
+
+[ext_resource type="Texture2D" uid="uid://g5j6bg3ab4fj" path="res://PNG/Space_Stars6.png" id="1_7ytyp"]
+
+[node name="lore1" type="Node2D"]
+
+[node name="SpaceStars6" type="Sprite2D" parent="."]
+position = Vector2(580, 327.5)
+scale = Vector2(18.3125, 10.4531)
+texture = ExtResource("1_7ytyp")
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 260.0
+offset_top = 511.0
+offset_right = 616.0
+offset_bottom = 568.0
+theme_override_font_sizes/font_size = 27
+text = "WHY I HAVE TO DO THIS?"
+wrap_mode = 1

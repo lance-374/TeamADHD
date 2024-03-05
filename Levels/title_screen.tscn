@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dk1xkb5e4gj3c"]
 
 [ext_resource type="Script" path="res://Levels/title_screen.gd" id="1_pcwgi"]
-[ext_resource type="Texture2D" uid="uid://bb1irpyc1gojk" path="res://Assets/Brown.png" id="2_1ott8"]
+[ext_resource type="Texture2D" uid="uid://ct2w7c5eaxkci" path="res://PNG/Space_Stars6.png" id="2_ucbyc"]
 [ext_resource type="AudioStream" uid="uid://cgupdoksgcglt" path="res://Sounds/Music/title_screen.mp3" id="3_r817w"]
 
 [node name="main_menu" type="Control"]
@@ -17,16 +17,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pcwgi")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_1ott8")
-stretch_mode = 1
+[node name="SpaceStars6" type="Sprite2D" parent="."]
+position = Vector2(522, 287)
+scale = Vector2(13.5625, 8.1875)
+texture = ExtResource("2_ucbyc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -74,10 +68,9 @@ theme_override_font_sizes/font_size = 30
 text = "PLAY"
 
 [node name="option_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "FULLSCREEN"
+text = "STORY"
 
 [node name="quit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 visible = false
