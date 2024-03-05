@@ -13,6 +13,7 @@ var gravity = 1960
 @export var starting_health = 100
 @export var starting_shield = 50
 @export var starting_facing_left = false
+@export var starting_recharge = 1
 @export var num_lives = 3
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -29,6 +30,7 @@ var moonwalk = false
 var starting_position
 var health
 var shield
+var recharge
 
 func _ready():
 	if self == null:
@@ -36,6 +38,7 @@ func _ready():
 	health = starting_health
 	shield = starting_shield
 	facing_left = starting_facing_left
+	recharge = starting_recharge
 	starting_position = position
 	healthbar.init_health(health)
 	shieldbar.init_health(shield)
@@ -184,6 +187,8 @@ func subtract_health(h):
 		healthbar._set_health(health)
 	else:
 		shield -= h
+		if shield < 0:
+			shield = 0
 		shieldbar._set_health(shield)
 	if health <= 0:
 		death()
@@ -193,12 +198,11 @@ func add_shield(s):
 		shield += s
 		if shield > 50:
 			shield = 50
-	
 	shieldbar._set_health(shield)
 
 func _on_timer_timeout():
 	if shield < 50 and not blocking:
-		add_shield(1)
+		add_shield(recharge)
 	shield_cooldown.start()
 
 func death():
