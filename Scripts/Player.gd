@@ -39,6 +39,7 @@ func _ready():
 	starting_position = position
 	healthbar.init_health(health)
 	shieldbar.init_health(shield)
+	shield_cooldown.start()
 
 func _physics_process(delta):
 	if self == null:
@@ -178,8 +179,6 @@ func update_health(h):
 		death()
 
 func subtract_health(h):
-	if not blocking and shield == 50:
-		shield_cooldown.start()
 	if not blocking or shield <= 0:
 		health -= h
 		healthbar._set_health(health)
@@ -194,13 +193,13 @@ func add_shield(s):
 		shield += s
 		if shield > 50:
 			shield = 50
+	
 	shieldbar._set_health(shield)
 
 func _on_timer_timeout():
-	if shield < 50:
+	if shield < 50 and not blocking:
 		add_shield(1)
-		if shield < 50:
-			shield_cooldown.start()
+	shield_cooldown.start()
 
 func death():
 	dead = true
