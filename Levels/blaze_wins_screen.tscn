@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dc3s2e2j70noi" path="res://Assets/endscreenimg.jpg" id="2_4xx3c"]
 [ext_resource type="AudioStream" uid="uid://by8k43pw5auji" path="res://Sounds/Music/EndScreenMusic.mp3" id="3_ucmio"]
 
-[node name="main_menu" type="Control"]
+[node name="main_menu2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,7 +58,7 @@ theme_override_colors/font_color = Color(1, 0.788235, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 60
-text = "BLAZE WINS !"
+text = "EHCO WINS !"
 horizontal_alignment = 1
 vertical_alignment = 1
 

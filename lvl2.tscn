@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://oo76uidprnep"]
+[gd_scene load_steps=14 format=3 uid="uid://cure43ji2fbv5"]
 
 [ext_resource type="PackedScene" path="res://parallax_background.tscn" id="1_0puqx"]
 [ext_resource type="Texture2D" uid="uid://d3oss6nudtttg" path="res://Free/Terrain/Terrain (16x16).png" id="1_6k5h6"]
 [ext_resource type="Script" path="res://lvl2.gd" id="1_miqlv"]
 [ext_resource type="PackedScene" path="res://enemy_frog.tscn" id="3_e6uc8"]
-[ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://player1.tscn" id="4_tfl7q"]
-[ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://player2.tscn" id="6_0m8xs"]
+[ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://Objects/player_1.tscn" id="4_tfl7q"]
+[ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://Objects/player_2.tscn" id="6_0m8xs"]
+[ext_resource type="PackedScene" uid="uid://cowuxagin5i37" path="res://Objects/multi_target_camera_2d.tscn" id="7_3p1ce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00nc5"]
 size = Vector2(32.75, 591)
@@ -254,3 +255,5 @@ position = Vector2(234, 539)
 
 [node name="Player2" parent="." instance=ExtResource("6_0m8xs")]
 position = Vector2(657, 272)
+
+[node name="MultiTargetCamera2D" parent="." instance=ExtResource("7_3p1ce")]

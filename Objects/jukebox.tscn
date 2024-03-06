@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Jukebox.gd" id="1_7tlsh"]
 [ext_resource type="Texture2D" uid="uid://niq6cvah3djs" path="res://Assets/boom_box.png" id="2_66mcd"]
-[ext_resource type="AudioStream" uid="uid://cx5holvnn362g" path="res://Sounds/Jukebox/smellsbad.mp3" id="3_on8oc"]
+[ext_resource type="AudioStream" uid="uid://cx5holvnn362g" path="res://Sounds/Music/smellsbad.mp3" id="3_on8oc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlo8"]
 size = Vector2(30, 14)
@@ -53,5 +53,8 @@ position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_sfyxb")
 animation = &"on"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="JukeboxPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_on8oc")
+
+[node name="LevelMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_on8oc")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://oeys6c02aoh5"]
+[gd_scene load_steps=5 format=3 uid="uid://crpmdupagvdr4"]
 
 [ext_resource type="Texture2D" uid="uid://ct2w7c5eaxkci" path="res://PNG/Space_Stars6.png" id="1_7ytyp"]
 [ext_resource type="Script" path="res://lore_3.gd" id="1_yijhy"]
@@ -24,7 +24,7 @@ wrap_mode = 1
 
 [node name="5rMove" type="Sprite2D" parent="."]
 position = Vector2(-1035, 339)
-scale = Vector2(3.19097, 4.08333)
+scale = Vector2(3.2, 3.2)
 texture = ExtResource("2_wn03u")
 
 [node name="TextEdit" type="TextEdit" parent="."]
@@ -46,7 +46,7 @@ layout_mode = 2
 
 [node name="7Attack2a" type="Sprite2D" parent="."]
 position = Vector2(1929, 342)
-scale = Vector2(3.33738, 4.29861)
+scale = Vector2(3.3, 3.3)
 texture = ExtResource("4_kncof")
 
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
