@@ -31,6 +31,8 @@ var starting_position
 var health
 var shield
 var recharge
+var vampirism = false
+var machine_gun = false
 
 func _ready():
 	if self == null:
@@ -141,6 +143,7 @@ func handle_shoot():
 	var down = "down" + controller_id
 	if Input.is_action_just_pressed("shoot" + controller_id) and not dead:
 		var b = Bullet.instantiate()
+		b.set_player(controller_id)
 		get_tree().root.add_child(b)
 		if facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):
 			b.set_speed(Vector2(-1, 0))

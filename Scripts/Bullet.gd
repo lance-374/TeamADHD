@@ -5,6 +5,7 @@ var speed = Vector2(0, 0)
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
 var damage = 2
+var player = 0
 
 var facing_left = false
 var entered_body = false
@@ -30,6 +31,9 @@ func set_speed(direction):
 	sprite_2d.rotation_degrees = angle
 	collision_shape_2d.rotation_degrees = angle
 
+func set_player(p):
+	player = p
+
 func _on_body_entered(body):
 	if body.is_in_group("players"):
 		body.subtract_health(damage)
@@ -38,7 +42,7 @@ func _on_body_entered(body):
 	elif body.is_in_group("vents"):
 		body.update_health(body.health - damage)
 	elif body.is_in_group("jukebox"):
-		body.toggle()
+		body.activate(player)
 	set_speed(Vector2.ZERO)
 	hide()
 	collision_shape_2d.queue_free()
