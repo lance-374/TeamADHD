@@ -143,17 +143,17 @@ func handle_shoot():
 	var down = "down" + controller_id
 	if Input.is_action_just_pressed("shoot" + controller_id) and not dead:
 		var b = Bullet.instantiate()
-		b.set_player(controller_id)
+		b.set_player(controller_id, self, vampirism)
 		get_tree().root.add_child(b)
 		if facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):
 			b.set_speed(Vector2(-1, 0))
 		elif not facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):
 			b.set_speed(Vector2(1, 0))
-		if Input.is_action_pressed(up):
+		if Input.is_action_pressed(up) and not machine_gun:
 			b.set_speed(Vector2(0, -1))
-		elif Input.is_action_pressed(down):
+		elif Input.is_action_pressed(down) and not machine_gun:
 			b.set_speed(Vector2(0, 1))
-		if (aim_input.x != 0 or aim_input.y != 0) and not moonwalk:
+		if (aim_input.x != 0 or aim_input.y != 0) and not moonwalk and not machine_gun:
 			b.set_speed(aim_input)
 		b.transform = muzzle.global_transform
 
@@ -180,6 +180,8 @@ func update_animation(input_axis):
 
 func update_health(h):
 	health = h
+	if health > 100:
+		health = 100
 	healthbar._set_health(health)
 	if health <= 0:
 		death()

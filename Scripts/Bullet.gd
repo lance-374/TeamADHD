@@ -9,6 +9,8 @@ var player = 0
 
 var facing_left = false
 var entered_body = false
+var vampirism = false
+var player_object
 
 func _ready():
 	bullet_sound.play()
@@ -31,12 +33,16 @@ func set_speed(direction):
 	sprite_2d.rotation_degrees = angle
 	collision_shape_2d.rotation_degrees = angle
 
-func set_player(p):
+func set_player(p, object, v=false):
 	player = p
+	vampirism = v
+	player_object = object
 
 func _on_body_entered(body):
 	if body.is_in_group("players"):
 		body.subtract_health(damage)
+		if vampirism:
+			player_object.update_health(player_object.health + damage)
 	elif body.is_in_group("gravity"):
 		body.update_health(body.health - damage)
 	elif body.is_in_group("vents"):
