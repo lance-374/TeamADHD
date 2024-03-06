@@ -153,7 +153,7 @@ func handle_shoot():
 			b.set_speed(Vector2(0, -1))
 		elif Input.is_action_pressed(down):
 			b.set_speed(Vector2(0, 1))
-		if aim_input.x != 0 or aim_input.y != 0:
+		if (aim_input.x != 0 or aim_input.y != 0) and not moonwalk:
 			b.set_speed(aim_input)
 		b.transform = muzzle.global_transform
 
