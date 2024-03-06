@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d2sdarwcyh0lv"]
+[gd_scene load_steps=49 format=3 uid="uid://d2sdarwcyh0lv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_q2q8i"]
 [ext_resource type="Texture2D" uid="uid://bow76bbk7n2ha" path="res://Assets/BoxRobot Sprite Sheets/type R/8R_Attack_3b.png" id="2_pvben"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dcoe4klimrof8" path="res://Assets/BoxRobot Sprite Sheets/type R/10R_Jump.png" id="3_baoxi"]
 [ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="3_btb1p"]
 [ext_resource type="Texture2D" uid="uid://01rsvrfo2n5e" path="res://Assets/BoxRobot Sprite Sheets/type R/5R_Move.png" id="4_qdga1"]
+[ext_resource type="Texture2D" uid="uid://cq3g3fjf4pn7w" path="res://Assets/BoxRobot Sprite Sheets/type R/9R_Attack_4b_Loop.png" id="6_khwa0"]
 [ext_resource type="PackedScene" uid="uid://disbp1dco0tsg" path="res://Objects/shield_bar.tscn" id="7_4c21g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6niea"]
@@ -107,6 +108,30 @@ region = Rect2(144, 0, 144, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vr0i1"]
 atlas = ExtResource("3_baoxi")
+region = Rect2(0, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejnen"]
+atlas = ExtResource("6_khwa0")
+region = Rect2(720, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifv25"]
+atlas = ExtResource("6_khwa0")
+region = Rect2(576, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mk0k"]
+atlas = ExtResource("6_khwa0")
+region = Rect2(432, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsknl"]
+atlas = ExtResource("6_khwa0")
+region = Rect2(288, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhl5s"]
+atlas = ExtResource("6_khwa0")
+region = Rect2(144, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n8wc"]
+atlas = ExtResource("6_khwa0")
 region = Rect2(0, 0, 144, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxbk5"]
@@ -232,6 +257,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ejnen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifv25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mk0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsknl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhl5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n8wc")
+}],
+"loop": true,
+"name": &"machine_gun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yxbk5")
 }, {
 "duration": 1.0,
@@ -266,14 +314,14 @@ controller_id = "1"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -19)
 sprite_frames = SubResource("SpriteFrames_c4h17")
-animation = &"death"
+animation = &"machine_gun"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_nes68")
 
 [node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(20, -24)
+position = Vector2(26, -24)
 
 [node name="HealthBar" parent="." instance=ExtResource("3_btb1p")]
 offset_left = -32.0
@@ -290,5 +338,9 @@ offset_bottom = -60.0
 [node name="ShieldCooldown" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="AutoFireTimer" type="Timer" parent="."]
+wait_time = 0.125
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ShieldCooldown" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AutoFireTimer" to="." method="_on_auto_fire_timer_timeout"]

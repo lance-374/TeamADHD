@@ -23,6 +23,7 @@ var gravity = 1960
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var shieldbar = $ShieldBar
 @onready var shield_cooldown = $ShieldCooldown
+@onready var auto_fire_timer = $AutoFireTimer
 
 var facing_left
 var blocking = false
@@ -85,22 +86,34 @@ func _physics_process(delta):
 	if facing_left and gravity_flipped:
 		collision_shape_2d.position = Vector2(14,-40)
 		healthbar.position = Vector2(-20, 12)
-		muzzle.position = Vector2(-20, -12)
+		if not machine_gun:
+			muzzle.position = Vector2(-20, -12)
+		else:
+			muzzle.position = Vector2(-20, -42)
 		shieldbar.position = Vector2(-20, 21)
 	elif not facing_left and gravity_flipped:
 		collision_shape_2d.position = Vector2(0,-40)
 		healthbar.position = Vector2(-32, 12)
-		muzzle.position = Vector2(26, -12)
+		if not machine_gun:
+			muzzle.position = Vector2(26, -12)
+		else:
+			muzzle.position = Vector2(26, -42)
 		shieldbar.position = Vector2(-32, 21)
 	elif facing_left and not gravity_flipped:
 		collision_shape_2d.position = Vector2(14,2)
 		healthbar.position = Vector2(-20, -52)
-		muzzle.position = Vector2(-20, -24)
+		if not machine_gun:
+			muzzle.position = Vector2(-20, -24)
+		else:
+			muzzle.position = Vector2(-20, 4)
 		shieldbar.position = Vector2(-20, -64)
 	elif not facing_left and not gravity_flipped:
 		collision_shape_2d.position = Vector2(0,2)
 		healthbar.position = Vector2(-32, -52)
-		muzzle.position = Vector2(26, -24)
+		if not machine_gun:
+			muzzle.position = Vector2(26, -24)
+		else:
+			muzzle.position = Vector2(26, 4)
 		shieldbar.position = Vector2(-32, -64)
 
 func apply_gravity(delta):
@@ -138,16 +151,16 @@ func is_on_floor_or_ceiling():
 	else:
 		return is_on_ceiling()
 
-func handle_shoot():
+func handle_shoot(autofire=false):
 	var up = "up" + controller_id
 	var down = "down" + controller_id
-	if Input.is_action_just_pressed("shoot" + controller_id) and not dead:
+	if (Input.is_action_just_pressed("shoot" + controller_id) or autofire) and not dead:
 		var b = Bullet.instantiate()
 		b.set_player(controller_id, self, vampirism)
 		get_tree().root.add_child(b)
-		if facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):
+		if facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down) and not machine_gun:
 			b.set_speed(Vector2(-1, 0))
-		elif not facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down):
+		elif not facing_left and not Input.is_action_pressed(up) and not Input.is_action_pressed(down) and not machine_gun:
 			b.set_speed(Vector2(1, 0))
 		if Input.is_action_pressed(up) and not machine_gun:
 			b.set_speed(Vector2(0, -1))
@@ -155,11 +168,29 @@ func handle_shoot():
 			b.set_speed(Vector2(0, 1))
 		if (aim_input.x != 0 or aim_input.y != 0) and not moonwalk and not machine_gun:
 			b.set_speed(aim_input)
+		if machine_gun:
+			if facing_left:
+				b.set_speed(Vector2(-1, 0))
+			else:
+				b.set_speed(Vector2(1, 0))
 		b.transform = muzzle.global_transform
 
 func apply_friction(input_axis, delta):
 	if input_axis == 0:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+
+func toggle_machine_gun():
+	if machine_gun:
+		machine_gun = false
+		auto_fire_timer.stop()
+	else:
+		machine_gun = true
+		auto_fire_timer.start()
+
+func _on_auto_fire_timer_timeout():
+	if machine_gun:
+		auto_fire_timer.start()
+	handle_shoot(true)
 
 func apply_acceleration(input_axis, delta):
 	if input_axis and not dead:
@@ -169,14 +200,16 @@ func update_animation(input_axis):
 	animated_sprite_2d.flip_h = facing_left
 	animated_sprite_2d.flip_v = gravity_flipped
 	if not dead:
-		if input_axis != 0:
+		if input_axis != 0 and not machine_gun:
 			animated_sprite_2d.play("run")
-		elif not is_on_floor_or_ceiling():
+		elif not is_on_floor_or_ceiling() and not machine_gun:
 			animated_sprite_2d.play("jump")
-		else:
+		elif not machine_gun:
 			animated_sprite_2d.play("idle")
-		if blocking:
+		if blocking and not machine_gun:
 			animated_sprite_2d.play("block")
+		if machine_gun:
+			animated_sprite_2d.play("machine_gun")
 
 func update_health(h):
 	health = h
@@ -230,4 +263,3 @@ func _on_animated_sprite_2d_animation_finished():
 			shield = starting_shield
 			healthbar._set_health(health)
 			shieldbar._set_health(shield)
-			

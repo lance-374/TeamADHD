@@ -50,9 +50,9 @@ func activate(p, powerup = rng.randi_range(0,5)):
 			print("Increased recharge on player " + player)
 		elif powerup_id == 3: #machine gun
 			if player == "1":
-				player_1.machine_gun = true
+				player_1.toggle_machine_gun()
 			else:
-				player_2.machine_gun = true
+				player_2.toggle_machine_gun()
 			print("Triggered machine gun on player " + player)
 		elif powerup_id == 4: #vampirism
 			if player == "1":
@@ -81,16 +81,11 @@ func _on_jukebox_player_finished():
 			player_1.recharge /= 2
 		else:
 			player_2.recharge /= 2
-	elif powerup_id == 3: #flip gravity
-		if player == "1":
-			player_2.gravity_flipped = not player_2.gravity_flipped
-		else:
-			player_1.gravity_flipped = not player_1.gravity_flipped
 	elif powerup_id == 3: #machine gun
 		if player == "1":
-			player_1.machine_gun = false
+			player_1.toggle_machine_gun()
 		else:
-			player_2.machine_gun = false
+			player_2.toggle_machine_gun()
 	elif powerup_id == 4: #vampirism
 		if player == "1":
 			player_1.vampirism = false
