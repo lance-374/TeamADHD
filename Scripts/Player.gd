@@ -22,6 +22,7 @@ var gravity = 1960
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var shield_cooldown = $ShieldCooldown
 @onready var auto_fire_timer = $AutoFireTimer
+
 @onready var health_bar_1 = $"../MultiTargetCamera2D/HUD/HealthBar1"
 @onready var health_bar_2 = $"../MultiTargetCamera2D/HUD/HealthBar2"
 @onready var shield_bar_1 = $"../MultiTargetCamera2D/HUD/ShieldBar1"
@@ -48,11 +49,12 @@ func _ready():
 	recharge = starting_recharge
 	starting_position = position
 	if controller_id == "1":
-		health_bar_1.init_health(health)
-		shield_bar_1.init_health(shield)
+		print("init_health player 1")
+		health_bar_1.init_health(starting_health)
+		shield_bar_1.init_health(starting_shield)
 	else:
-		health_bar_2.init_health(health)
-		shield_bar_2.init_health(shield)
+		health_bar_2.init_health(starting_health)
+		shield_bar_2.init_health(starting_shield)
 	shield_cooldown.start()
 
 func _physics_process(delta):

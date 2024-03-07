@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cowuxagin5i37" path="res://Objects/multi_target_camera_2d.tscn" id="1_0buyy"]
 [ext_resource type="Texture2D" uid="uid://4sg7wrstqjnc" path="res://Assets/Buildings.png" id="1_bff0b"]
 [ext_resource type="Script" path="res://Levels/level_lab.gd" id="1_iuqjv"]
-[ext_resource type="PackedScene" path="res://Objects/vent.tscn" id="2_2fwvd"]
+[ext_resource type="PackedScene" uid="uid://db6jf21nrfg8y" path="res://Objects/vent.tscn" id="2_2fwvd"]
 [ext_resource type="Script" path="res://Objects/CanvasLayer.gd" id="2_n1q2v"]
 [ext_resource type="Texture2D" uid="uid://ixphl48bu6wm" path="res://Assets/Tiles.png" id="2_xi7ja"]
 [ext_resource type="Texture2D" uid="uid://bmdlqktuy7o11" path="res://Assets/spritesheet.png" id="3_7jlnj"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://civ22psorajts" path="res://Assets/_1_2.png" id="8_5sk45"]
 [ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://Objects/player_1.tscn" id="8_ey2ii"]
 [ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://Objects/player_2.tscn" id="9_0b10p"]
-[ext_resource type="PackedScene" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
+[ext_resource type="PackedScene" uid="uid://c2dh71qqifo2m" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
 [ext_resource type="PackedScene" uid="uid://bnw2xwihbny8t" path="res://Objects/jukebox.tscn" id="13_prffe"]
 [ext_resource type="Script" path="res://Scripts/OutOfBounds.gd" id="14_yqki6"]
 [ext_resource type="Texture2D" uid="uid://dkcafmssdp6ss" path="res://Assets/composed-bg.png" id="15_tihmt"]
@@ -26008,13 +26008,13 @@ rotation = -3.14159
 offset_right = 250.0
 offset_bottom = 30.0
 
-[node name="ShieldBar1" parent="MultiTargetCamera2D/HUD" instance=ExtResource("17_yf6io")]
+[node name="ShieldBar2" parent="MultiTargetCamera2D/HUD" instance=ExtResource("17_yf6io")]
 offset_left = 1.0
 offset_top = 35.0
 offset_right = 103.0
 offset_bottom = 52.0
 
-[node name="ShieldBar2" parent="MultiTargetCamera2D/HUD" instance=ExtResource("17_yf6io")]
+[node name="ShieldBar1" parent="MultiTargetCamera2D/HUD" instance=ExtResource("17_yf6io")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

@@ -16,15 +16,17 @@ func _set_health(new_health):
 	if health < prev_health:
 		timer.start()
 	else:
-		dmgbar.value = health
+		#dmgbar.value = health
+		pass
+		
 
 func init_health(_health):
 	health = _health
 	max_value = health
 	value = health
-	dmgbar.value = health
-	dmgbar.max_value = health
+	#dmgbar.value = health
+	#dmgbar.max_value = health
 
 func _on_timer_timeout():
 	dmgbar.value = health
-	print("time ended")
+	print("timer ended")
