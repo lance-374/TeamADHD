@@ -1,14 +1,12 @@
-[gd_scene load_steps=49 format=3 uid="uid://d2sdarwcyh0lv"]
+[gd_scene load_steps=47 format=3 uid="uid://d2sdarwcyh0lv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_q2q8i"]
 [ext_resource type="Texture2D" uid="uid://bow76bbk7n2ha" path="res://Assets/BoxRobot Sprite Sheets/type R/8R_Attack_3b.png" id="2_pvben"]
 [ext_resource type="Texture2D" uid="uid://nol374qioihd" path="res://Assets/BoxRobot Sprite Sheets/type R/4R_Idle.png" id="2_uj1m6"]
 [ext_resource type="Texture2D" uid="uid://cu0s5e03bvn6w" path="res://Assets/BoxRobot Sprite Sheets/type R/14R_wreck.png" id="3_36nww"]
 [ext_resource type="Texture2D" uid="uid://dcoe4klimrof8" path="res://Assets/BoxRobot Sprite Sheets/type R/10R_Jump.png" id="3_baoxi"]
-[ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="3_btb1p"]
 [ext_resource type="Texture2D" uid="uid://01rsvrfo2n5e" path="res://Assets/BoxRobot Sprite Sheets/type R/5R_Move.png" id="4_qdga1"]
 [ext_resource type="Texture2D" uid="uid://cq3g3fjf4pn7w" path="res://Assets/BoxRobot Sprite Sheets/type R/9R_Attack_4b_Loop.png" id="6_khwa0"]
-[ext_resource type="PackedScene" uid="uid://disbp1dco0tsg" path="res://Objects/shield_bar.tscn" id="7_4c21g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6niea"]
 atlas = ExtResource("2_pvben")
@@ -322,18 +320,6 @@ shape = SubResource("RectangleShape2D_nes68")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(26, -24)
-
-[node name="HealthBar" parent="." instance=ExtResource("3_btb1p")]
-offset_left = -32.0
-offset_top = -56.0
-offset_right = 32.0
-offset_bottom = -48.0
-
-[node name="ShieldBar" parent="." instance=ExtResource("7_4c21g")]
-offset_left = -32.0
-offset_top = -64.0
-offset_right = 0.0
-offset_bottom = -60.0
 
 [node name="ShieldCooldown" type="Timer" parent="."]
 wait_time = 2.0

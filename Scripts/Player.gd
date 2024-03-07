@@ -19,18 +19,22 @@ var gravity = 1960
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle = $Muzzle
 @onready var Bullet = preload("res://Objects/bullet.tscn")
-@onready var healthbar = $HealthBar
 @onready var collision_shape_2d = $CollisionShape2D
-@onready var shieldbar = $ShieldBar
 @onready var shield_cooldown = $ShieldCooldown
 @onready var auto_fire_timer = $AutoFireTimer
+@onready var health_bar_1 = $"../MultiTargetCamera2D/HUD/HealthBar1"
+@onready var health_bar_2 = $"../MultiTargetCamera2D/HUD/HealthBar2"
+@onready var shield_bar_1 = $"../MultiTargetCamera2D/HUD/ShieldBar1"
+@onready var shield_bar_2 = $"../MultiTargetCamera2D/HUD/ShieldBar2"
+
+
 
 var facing_left
 var blocking = false
 var moonwalk = false
 var starting_position
-var health
-var shield
+var health: int
+var shield: int
 var recharge
 var vampirism = false
 var machine_gun = false
@@ -43,8 +47,12 @@ func _ready():
 	facing_left = starting_facing_left
 	recharge = starting_recharge
 	starting_position = position
-	healthbar.init_health(health)
-	shieldbar.init_health(shield)
+	if controller_id == "1":
+		health_bar_1.init_health(health)
+		shield_bar_1.init_health(shield)
+	else:
+		health_bar_2.init_health(health)
+		shield_bar_2.init_health(shield)
 	shield_cooldown.start()
 
 func _physics_process(delta):
@@ -85,36 +93,28 @@ func _physics_process(delta):
 #	update positions of everything, TODO improve this using PositionNode2D
 	if facing_left and gravity_flipped:
 		collision_shape_2d.position = Vector2(14,-40)
-		healthbar.position = Vector2(-20, 12)
 		if not machine_gun:
 			muzzle.position = Vector2(-20, -12)
 		else:
 			muzzle.position = Vector2(-20, -42)
-		shieldbar.position = Vector2(-20, 21)
 	elif not facing_left and gravity_flipped:
 		collision_shape_2d.position = Vector2(0,-40)
-		healthbar.position = Vector2(-32, 12)
 		if not machine_gun:
 			muzzle.position = Vector2(26, -12)
 		else:
 			muzzle.position = Vector2(26, -42)
-		shieldbar.position = Vector2(-32, 21)
 	elif facing_left and not gravity_flipped:
 		collision_shape_2d.position = Vector2(14,2)
-		healthbar.position = Vector2(-20, -52)
 		if not machine_gun:
 			muzzle.position = Vector2(-20, -24)
 		else:
 			muzzle.position = Vector2(-20, 4)
-		shieldbar.position = Vector2(-20, -64)
 	elif not facing_left and not gravity_flipped:
 		collision_shape_2d.position = Vector2(0,2)
-		healthbar.position = Vector2(-32, -52)
 		if not machine_gun:
 			muzzle.position = Vector2(26, -24)
 		else:
 			muzzle.position = Vector2(26, 4)
-		shieldbar.position = Vector2(-32, -64)
 
 func apply_gravity(delta):
 	if not is_on_floor_or_ceiling():
@@ -215,19 +215,28 @@ func update_health(h):
 	health = h
 	if health > 100:
 		health = 100
-	healthbar._set_health(health)
+	if controller_id == "1":
+		health_bar_1._set_health(health)
+	else:
+		health_bar_2._set_health(health)
 	if health <= 0:
 		death()
 
 func subtract_health(h):
 	if not blocking or shield <= 0:
 		health -= h
-		healthbar._set_health(health)
+		if controller_id == "1":
+			health_bar_1._set_health(health)
+		else:
+			health_bar_2._set_health(health)
 	else:
 		shield -= h
 		if shield < 0:
 			shield = 0
-		shieldbar._set_health(shield)
+		if controller_id == "1":
+			shield_bar_1._set_health(shield)
+		else:
+			shield_bar_2._set_health(shield)
 	if health <= 0:
 		death()
 
@@ -236,7 +245,10 @@ func add_shield(s):
 		shield += s
 		if shield > 50:
 			shield = 50
-	shieldbar._set_health(shield)
+	if controller_id == "1":
+		shield_bar_1._set_health(shield)
+	else:
+		shield_bar_2._set_health(shield)
 
 func _on_timer_timeout():
 	if shield < 50 and not blocking:
@@ -259,7 +271,12 @@ func _on_animated_sprite_2d_animation_finished():
 			dead = false
 			facing_left = starting_facing_left
 			position = starting_position
-			health = starting_health
 			shield = starting_shield
-			healthbar._set_health(health)
-			shieldbar._set_health(shield)
+			health = starting_health
+			if controller_id == "1":
+				shield_bar_1._set_health(shield)
+				health_bar_1._set_health(health)
+			else:
+				shield_bar_2._set_health(shield)
+				health_bar_2._set_health(health)
+				

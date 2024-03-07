@@ -1,20 +1,23 @@
-[gd_scene load_steps=26 format=3 uid="uid://drxybjftgojvf"]
+[gd_scene load_steps=27 format=3 uid="uid://drxybjftgojvf"]
 
 [ext_resource type="PackedScene" uid="uid://cowuxagin5i37" path="res://Objects/multi_target_camera_2d.tscn" id="1_0buyy"]
 [ext_resource type="Texture2D" uid="uid://4sg7wrstqjnc" path="res://Assets/Buildings.png" id="1_bff0b"]
 [ext_resource type="Script" path="res://Levels/level_lab.gd" id="1_iuqjv"]
-[ext_resource type="PackedScene" uid="uid://db6jf21nrfg8y" path="res://Objects/vent.tscn" id="2_2fwvd"]
+[ext_resource type="PackedScene" path="res://Objects/vent.tscn" id="2_2fwvd"]
+[ext_resource type="Script" path="res://Objects/CanvasLayer.gd" id="2_n1q2v"]
 [ext_resource type="Texture2D" uid="uid://ixphl48bu6wm" path="res://Assets/Tiles.png" id="2_xi7ja"]
 [ext_resource type="Texture2D" uid="uid://bmdlqktuy7o11" path="res://Assets/spritesheet.png" id="3_7jlnj"]
+[ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="3_tkyk2"]
 [ext_resource type="Texture2D" uid="uid://dhqls5pv6s78n" path="res://Assets/Props-01.png" id="6_14fsd"]
 [ext_resource type="Texture2D" uid="uid://c8qdafd082sd4" path="res://Assets/TileSet v1.0.png" id="7_shtpo"]
 [ext_resource type="Texture2D" uid="uid://civ22psorajts" path="res://Assets/_1_2.png" id="8_5sk45"]
 [ext_resource type="PackedScene" uid="uid://d2sdarwcyh0lv" path="res://Objects/player_1.tscn" id="8_ey2ii"]
 [ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://Objects/player_2.tscn" id="9_0b10p"]
-[ext_resource type="PackedScene" uid="uid://c2dh71qqifo2m" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
+[ext_resource type="PackedScene" path="res://Objects/gravity_switch.tscn" id="12_5kylx"]
 [ext_resource type="PackedScene" uid="uid://bnw2xwihbny8t" path="res://Objects/jukebox.tscn" id="13_prffe"]
 [ext_resource type="Script" path="res://Scripts/OutOfBounds.gd" id="14_yqki6"]
 [ext_resource type="Texture2D" uid="uid://dkcafmssdp6ss" path="res://Assets/composed-bg.png" id="15_tihmt"]
+[ext_resource type="PackedScene" uid="uid://b67kbrcqcebha" path="res://Objects/shield_bar.tscn" id="17_yf6io"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xlii1"]
 texture = ExtResource("3_7jlnj")
@@ -25880,15 +25883,8 @@ sources/6 = SubResource("TileSetAtlasSource_gkbmw")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkuv0"]
 size = Vector2(1483, 84.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq70e"]
-size = Vector2(428, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_56vbd"]
-
 [node name="level lab" type="Node2D"]
 script = ExtResource("1_iuqjv")
-
-[node name="Vent" parent="." groups=["vents"] instance=ExtResource("2_2fwvd")]
 
 [node name="background layer" type="TileMap" parent="."]
 visibility_layer = 3
@@ -25906,8 +25902,6 @@ position = Vector2(55, -54)
 
 [node name="Player2" parent="." groups=["players"] instance=ExtResource("9_0b10p")]
 position = Vector2(349, -57)
-
-[node name="MultiTargetCamera2D" parent="." instance=ExtResource("1_0buyy")]
 
 [node name="GravitySwitch" parent="." groups=["gravity"] instance=ExtResource("12_5kylx")]
 position = Vector2(445, -320)
@@ -25979,11 +25973,55 @@ position = Vector2(-90, -645.75)
 scale = Vector2(5.76953, 5.18466)
 texture = ExtResource("15_tihmt")
 
-[node name="tempCollision" type="CollisionShape2D" parent="."]
-position = Vector2(312, -443)
-shape = SubResource("RectangleShape2D_kq70e")
+[node name="MultiTargetCamera2D" parent="." instance=ExtResource("1_0buyy")]
+z_index = -1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_56vbd")
+[node name="HUD" type="CanvasLayer" parent="MultiTargetCamera2D"]
+layer = 0
+script = ExtResource("2_n1q2v")
+
+[node name="combined" type="Label" parent="MultiTargetCamera2D/HUD"]
+top_level = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 37.0
+grow_horizontal = 2
+text = "3 : 3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar1" parent="MultiTargetCamera2D/HUD" instance=ExtResource("3_tkyk2")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 31.0
+offset_right = 250.0
+offset_bottom = 61.0
+grow_horizontal = 0
+rotation = -3.14159
+
+[node name="HealthBar2" parent="MultiTargetCamera2D/HUD" instance=ExtResource("3_tkyk2")]
+offset_right = 250.0
+offset_bottom = 30.0
+
+[node name="ShieldBar1" parent="MultiTargetCamera2D/HUD" instance=ExtResource("17_yf6io")]
+offset_left = 1.0
+offset_top = 35.0
+offset_right = 103.0
+offset_bottom = 52.0
+
+[node name="ShieldBar2" parent="MultiTargetCamera2D/HUD" instance=ExtResource("17_yf6io")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 54.0
+offset_right = 102.0
+offset_bottom = 71.0
+grow_horizontal = 0
+rotation = -3.14159
 
 [connection signal="body_entered" from="OutOfBounds" to="OutOfBounds" method="_on_body_entered"]
