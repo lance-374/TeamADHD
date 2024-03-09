@@ -23,10 +23,10 @@ var gravity = 1960
 @onready var shield_cooldown = $ShieldCooldown
 @onready var auto_fire_timer = $AutoFireTimer
 
-@onready var health_bar_1 = $"../MultiTargetCamera2D/HUD/HealthBar1"
-@onready var health_bar_2 = $"../MultiTargetCamera2D/HUD/HealthBar2"
-@onready var shield_bar_1 = $"../MultiTargetCamera2D/HUD/ShieldBar1"
-@onready var shield_bar_2 = $"../MultiTargetCamera2D/HUD/ShieldBar2"
+@onready var health_bar_1 = $"../MultiTargetCamera2D/HUD/HealthBar2"
+@onready var health_bar_2 = $"../MultiTargetCamera2D/HUD/HealthBar1"
+@onready var shield_bar_1 = $"../MultiTargetCamera2D/HUD/ShieldBar2"
+@onready var shield_bar_2 = $"../MultiTargetCamera2D/HUD/ShieldBar1"
 
 
 

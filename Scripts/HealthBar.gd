@@ -29,4 +29,3 @@ func init_health(_health):
 
 func _on_timer_timeout():
 	dmgbar.value = health
-	print("timer ended")

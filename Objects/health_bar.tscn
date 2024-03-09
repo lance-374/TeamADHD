@@ -17,7 +17,7 @@ shadow_color = Color(0, 0, 0, 0.27451)
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktyg1"]
-bg_color = Color(1, 0, 0, 1)
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Hpbar" type="ProgressBar"]
 z_index = 1

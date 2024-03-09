@@ -10,11 +10,26 @@ var powerup_id = -1
 @onready var player_1 = $"../Player1"
 @onready var player_2 = $"../Player2"
 
-var tracklist = [preload("res://Sounds/Jukebox2.0/Careless Whisper.mp3"), preload("res://Sounds/Jukebox2.0/Elevator.mp3"), preload("res://Sounds/Jukebox2.0/Jazz.mp3"), preload("res://Sounds/Jukebox2.0/Lightbringer-Metal.mp3"), preload("res://Sounds/Jukebox2.0/The Four Seasons-Classical.mp3"), preload("res://Sounds/Jukebox2.0/Rickroll.mp3")]
+var tracklist = [preload("res://Sounds/8-bit music/careless_whisper.mp3"), preload("res://Sounds/8-bit music/elevator.mp3"), preload("res://Sounds/8-bit music/four_seasons.mp3"), preload("res://Sounds/8-bit music/lightbringer.mp3"), preload("res://Sounds/8-bit music/four_seasons.mp3"), preload("res://Sounds/8-bit music/rickroll.mp3")]
+
 func _ready():
 	level_music_player.play()
 	jukebox_player.play()
 	animated_sprite_2d.play("off")
+
+func _process(_delta):
+	if Input.is_action_just_pressed("1"):
+		activate("1", 0)
+	if Input.is_action_just_pressed("2"):
+		activate("1", 1)
+	if Input.is_action_just_pressed("3"):
+		activate("1", 2)
+	if Input.is_action_just_pressed("4"):
+		activate("1", 3)
+	if Input.is_action_just_pressed("5"):
+		activate("1", 4)
+	if Input.is_action_just_pressed("6"):
+		activate("1", 5)
 
 func activate(p, powerup = rng.randi_range(0,5)):
 	if not is_playing:
@@ -28,38 +43,38 @@ func activate(p, powerup = rng.randi_range(0,5)):
 				player = "2"
 			else:
 				player = "1"
-			print("Rickrolled player " + player)
+			#print("Rickrolled player " + player)
 			powerup_id = rng.randi_range(0,4)
 		if powerup_id == 0: #moonwalk
 			if player == "1":
 				player_2.moonwalk = true
 			else:
 				player_1.moonwalk = true
-			print("Triggered moonwalk for player " + player)
+			#print("Triggered moonwalk for player " + player)
 		elif powerup_id == 1: #flip gravity
 			if player == "1":
 				player_2.reverse_gravity()
 			else:
 				player_1.reverse_gravity()
-			print("Flipped gravity for player " + player)
+			#print("Flipped gravity for player " + player)
 		elif powerup_id == 2: #increase recharge speed
 			if player == "1":
 				player_1.recharge *= 2
 			else:
 				player_2.recharge *= 2
-			print("Increased recharge on player " + player)
+			#print("Increased recharge on player " + player)
 		elif powerup_id == 3: #machine gun
 			if player == "1":
 				player_1.toggle_machine_gun()
 			else:
 				player_2.toggle_machine_gun()
-			print("Triggered machine gun on player " + player)
+			#print("Triggered machine gun on player " + player)
 		elif powerup_id == 4: #vampirism
 			if player == "1":
 				player_1.vampirism = true
 			else:
 				player_2.vampirism = true
-			print("Triggered vampirism on player " + player)
+			#print("Triggered vampirism on player " + player)
 		jukebox_player.play()
 		animated_sprite_2d.play("on")
 

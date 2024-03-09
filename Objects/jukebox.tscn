@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cx5holvnn362g" path="res://Sounds/Music/smellsbad.mp3" id="3_on8oc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltlo8"]
-size = Vector2(60, 28)
+size = Vector2(66, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afqsx"]
 atlas = ExtResource("2_66mcd")
@@ -45,7 +45,7 @@ animations = [{
 script = ExtResource("1_7tlsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_ltlo8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
