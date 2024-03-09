@@ -17,23 +17,18 @@ texture = ExtResource("1_7ytyp")
 offset_left = 264.0
 offset_top = 26.0
 offset_right = 647.0
-offset_bottom = 258.0
+offset_bottom = 217.0
 theme_override_font_sizes/font_size = 27
-text = "Zephyr has sent out Blaze to capture Echo, who is seen as a traitor and a threat to his kingdom"
+text = "Zephyr has sent out Blaze to capture Echo, who is seen as a traitor and a threat to his kingdom."
 wrap_mode = 1
 
-[node name="5rMove" type="Sprite2D" parent="."]
-position = Vector2(-1035, 339)
-scale = Vector2(3.2, 3.2)
-texture = ExtResource("2_wn03u")
-
 [node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 322.0
+offset_left = 318.0
 offset_top = 392.0
-offset_right = 524.0
-offset_bottom = 478.0
+offset_right = 519.0
+offset_bottom = 450.0
 theme_override_font_sizes/font_size = 29
-text = "LETS FIGHT!!!"
+text = " LETS FIGHT!!!"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 857.0
@@ -43,6 +38,11 @@ offset_bottom = 488.0
 light_mask = 0
 visibility_layer = 0
 layout_mode = 2
+
+[node name="5rMove" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(-1035, 339)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("2_wn03u")
 
 [node name="7Attack2a" type="Sprite2D" parent="."]
 position = Vector2(1929, 342)

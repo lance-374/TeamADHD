@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var health = 20
+@export var health = 10
 @onready var player_1 = $"../Player1"
 @onready var player_2 = $"../Player2"
 @onready var animated_sprite_2d = $AnimatedSprite2D

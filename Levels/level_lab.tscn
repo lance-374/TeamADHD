@@ -26004,10 +26004,12 @@ top_level = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -51.5
-offset_right = 51.5
-offset_bottom = 37.0
+offset_left = -102.5
+offset_top = 1.0
+offset_right = 0.5
+offset_bottom = 38.0
 grow_horizontal = 2
+scale = Vector2(2, 2)
 text = "3 : 3
 "
 horizontal_alignment = 1
@@ -26048,5 +26050,8 @@ offset_left = 1.0
 offset_top = 32.0
 offset_right = 126.0
 offset_bottom = 47.0
+
+[node name="GravitySwitch3" parent="." groups=["gravity"] instance=ExtResource("12_5kylx")]
+position = Vector2(-496, 96)
 
 [connection signal="body_entered" from="OutOfBounds" to="OutOfBounds" method="_on_body_entered"]

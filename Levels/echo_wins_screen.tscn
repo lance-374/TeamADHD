@@ -52,24 +52,13 @@ theme_override_constants/separation = 100
 [node name="seperator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BlazeWinsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.788235, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 60
-text = "BLAZE WINS !"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="EchoWinsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.729412, 0.113725, 0, 1)
+theme_override_colors/font_color = Color(1, 0.635294, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 60
-text = "BLAZE WINS !"
+text = "ECHO WINS !"
 horizontal_alignment = 1
 vertical_alignment = 1
 

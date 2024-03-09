@@ -156,7 +156,7 @@ func is_on_floor_or_ceiling():
 func handle_shoot(autofire=false):
 	var up = "up" + controller_id
 	var down = "down" + controller_id
-	if (Input.is_action_just_pressed("shoot" + controller_id) or autofire) and not dead:
+	if (Input.is_action_just_pressed("shoot" + controller_id) or autofire) and not dead and not blocking:
 		var b = Bullet.instantiate()
 		b.set_player(controller_id, self, vampirism)
 		get_tree().root.add_child(b)
@@ -266,9 +266,9 @@ func _on_animated_sprite_2d_animation_finished():
 		num_lives -= 1
 		if num_lives == 0:
 			if controller_id == "1":
-				get_tree().change_scene_to_file("res://Levels/blaze_wins_screen.tscn")
-			else:
 				get_tree().change_scene_to_file("res://Levels/echo_wins_screen.tscn")
+			else:
+				get_tree().change_scene_to_file("res://Levels/blaze_wins_screen.tscn")
 		else:
 			dead = false
 			facing_left = starting_facing_left

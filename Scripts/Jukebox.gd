@@ -10,7 +10,7 @@ var powerup_id = -1
 @onready var player_1 = $"../Player1"
 @onready var player_2 = $"../Player2"
 
-var tracklist = [preload("res://Sounds/8-bit music/careless_whisper.mp3"), preload("res://Sounds/8-bit music/elevator.mp3"), preload("res://Sounds/8-bit music/four_seasons.mp3"), preload("res://Sounds/8-bit music/lightbringer.mp3"), preload("res://Sounds/8-bit music/four_seasons.mp3"), preload("res://Sounds/8-bit music/rickroll.mp3")]
+var tracklist = [preload("res://Sounds/8-bit music/careless_whisper.mp3"), preload("res://Sounds/8-bit music/elevator.mp3"), preload("res://Sounds/8-bit music/jazz.mp3"), preload("res://Sounds/8-bit music/lightbringer.mp3"), preload("res://Sounds/8-bit music/four_seasons.mp3"), preload("res://Sounds/8-bit music/rickroll.mp3")]
 
 func _ready():
 	level_music_player.play()
@@ -59,9 +59,9 @@ func activate(p, powerup = rng.randi_range(0,5)):
 			#print("Flipped gravity for player " + player)
 		elif powerup_id == 2: #increase recharge speed
 			if player == "1":
-				player_1.recharge *= 2
+				player_1.recharge *= 5
 			else:
-				player_2.recharge *= 2
+				player_2.recharge *= 5
 			#print("Increased recharge on player " + player)
 		elif powerup_id == 3: #machine gun
 			if player == "1":
@@ -93,9 +93,9 @@ func _on_jukebox_player_finished():
 			player_1.reverse_gravity()
 	elif powerup_id == 2: #increase cooldown
 		if player == "1":
-			player_1.recharge /= 2
+			player_1.recharge /= 5
 		else:
-			player_2.recharge /= 2
+			player_2.recharge /= 5
 	elif powerup_id == 3: #machine gun
 		if player == "1":
 			player_1.toggle_machine_gun()

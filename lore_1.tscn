@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://csivwx4qh2m5r"]
+[gd_scene load_steps=6 format=3 uid="uid://csivwx4qh2m5r"]
 
 [ext_resource type="Texture2D" uid="uid://ct2w7c5eaxkci" path="res://PNG/Space_Stars6.png" id="1_6lpul"]
 [ext_resource type="Script" path="res://lore_1.gd" id="1_hi0m2"]
 [ext_resource type="Texture2D" uid="uid://cp3ehojsg6jxk" path="res://Terran.png" id="2_gu1nd"]
 [ext_resource type="Texture2D" uid="uid://djt8rkrvxbotp" path="res://Assets/BoxRobot Sprite Sheets/type R/11R_Emergency Disengagement_1_On the ground.png" id="3_pj4wb"]
+[ext_resource type="Texture2D" uid="uid://dhh1y2r7guqj3" path="res://Assets/BoxRobot Sprite Sheets/11_Emergency Disengagement_1_On the ground.png" id="5_14ose"]
 
 [node name="lore1" type="Node2D"]
 script = ExtResource("1_hi0m2")
@@ -30,18 +31,18 @@ text = "EARTH-CS292"
 offset_left = 44.0
 offset_top = 175.0
 offset_right = 784.0
-offset_bottom = 232.0
+offset_bottom = 257.0
 theme_override_font_sizes/font_size = 22
-text = "In this multiverse, human is  enslaved by a rogue AI named Zephyr"
+text = "In this multiverse, humans are enslaved by a rogue AI named Zephyr."
 wrap_mode = 1
 
 [node name="TextEdit3" type="TextEdit" parent="."]
 offset_left = 140.0
 offset_top = 417.0
-offset_right = 684.0
-offset_bottom = 461.0
+offset_right = 700.0
+offset_bottom = 470.0
 theme_override_font_sizes/font_size = 23
-text = "His right hand is Echo. A cruel and loyal servant:"
+text = "His right hand is Blaze. A cruel and loyal servant:"
 
 [node name="11rEmergencyDisengagement1OnTheGround" type="Sprite2D" parent="."]
 position = Vector2(1805, 387)
@@ -56,5 +57,10 @@ offset_bottom = 488.0
 light_mask = 0
 visibility_layer = 0
 layout_mode = 2
+
+[node name="11EmergencyDisengagement1OnTheGround" type="Sprite2D" parent="."]
+position = Vector2(-952, 391)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_14ose")
 
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
