@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5i52h74ldth1"
+path="res://.godot/imported/four_seasons.mp3-a0bca6c3939a03dbcb0fbbe177f7b038.mp3str"
+
+[deps]
+
+source_file="res://Sounds/8-bit music/four_seasons.mp3"
+dest_files=["res://.godot/imported/four_seasons.mp3-a0bca6c3939a03dbcb0fbbe177f7b038.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx82ee508rxpb"
+path="res://.godot/imported/lightbringer.mp3-69bb17ab92c4263101a61fc6be2874be.mp3str"
+
+[deps]
+
+source_file="res://Sounds/8-bit music/lightbringer.mp3"
+dest_files=["res://.godot/imported/lightbringer.mp3-69bb17ab92c4263101a61fc6be2874be.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

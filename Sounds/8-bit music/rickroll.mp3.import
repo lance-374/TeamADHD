@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5vvfakicgrap"
+path="res://.godot/imported/rickroll.mp3-606ea0cb7d25f2722e95403640e3bbd3.mp3str"
+
+[deps]
+
+source_file="res://Sounds/8-bit music/rickroll.mp3"
+dest_files=["res://.godot/imported/rickroll.mp3-606ea0cb7d25f2722e95403640e3bbd3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
