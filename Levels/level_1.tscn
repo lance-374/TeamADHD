@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4ichd6x72ed7"]
+[gd_scene load_steps=22 format=3 uid="uid://4ichd6x72ed7"]
 
 [ext_resource type="Texture2D" uid="uid://bqipd0nkunjgv" path="res://Assets/sky.png" id="1_5dh1w"]
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_cqbtg"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://Scripts/OutOfBounds.gd" id="5_x62no"]
 [ext_resource type="PackedScene" uid="uid://dgaoedv8knbnh" path="res://Objects/player_2.tscn" id="6_uk5v4"]
 [ext_resource type="PackedScene" uid="uid://cowuxagin5i37" path="res://Objects/multi_target_camera_2d.tscn" id="7_8beqw"]
+[ext_resource type="Script" path="res://Objects/CanvasLayer.gd" id="9_f7n18"]
+[ext_resource type="PackedScene" uid="uid://c64gbkb52wxj0" path="res://Objects/health_bar.tscn" id="10_7xtfq"]
+[ext_resource type="PackedScene" uid="uid://b67kbrcqcebha" path="res://Objects/shield_bar.tscn" id="11_d1x20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gr8o6"]
 texture = ExtResource("3_ldghs")
@@ -998,6 +1001,12 @@ size = Vector2(8, 224)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ublo"]
 size = Vector2(8, 32)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ged40"]
+bg_color = Color(1, 0.635294, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f244x"]
+bg_color = Color(1, 0, 0.282353, 1)
+
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_cqbtg")
 
@@ -1065,5 +1074,61 @@ position = Vector2(40, 120)
 position = Vector2(-56, 119)
 
 [node name="MultiTargetCamera2D" parent="." instance=ExtResource("7_8beqw")]
+
+[node name="HUD" type="CanvasLayer" parent="MultiTargetCamera2D"]
+layer = 0
+script = ExtResource("9_f7n18")
+
+[node name="combined" type="Label" parent="MultiTargetCamera2D/HUD"]
+top_level = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.5
+offset_top = 1.0
+offset_right = 0.5
+offset_bottom = 38.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+text = "3 : 3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar1" parent="MultiTargetCamera2D/HUD" instance=ExtResource("10_7xtfq")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 31.0
+offset_right = 249.0
+offset_bottom = 61.0
+grow_horizontal = 0
+rotation = -3.14159
+theme_override_styles/fill = SubResource("StyleBoxFlat_ged40")
+
+[node name="HealthBar2" parent="MultiTargetCamera2D/HUD" instance=ExtResource("10_7xtfq")]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 251.0
+offset_bottom = 31.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_f244x")
+
+[node name="ShieldBar1" parent="MultiTargetCamera2D/HUD" instance=ExtResource("11_d1x20")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 47.0
+offset_right = 124.0
+offset_bottom = 62.0
+grow_horizontal = 0
+rotation = -3.14159
+
+[node name="ShieldBar2" parent="MultiTargetCamera2D/HUD" instance=ExtResource("11_d1x20")]
+offset_left = 1.0
+offset_top = 32.0
+offset_right = 126.0
+offset_bottom = 47.0
 
 [connection signal="body_entered" from="OutOfBounds" to="OutOfBounds" method="_on_body_entered"]

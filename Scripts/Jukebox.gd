@@ -17,19 +17,19 @@ func _ready():
 	jukebox_player.play()
 	animated_sprite_2d.play("off")
 
-func _process(_delta):
-	if Input.is_action_just_pressed("1"):
-		activate("1", 0)
-	if Input.is_action_just_pressed("2"):
-		activate("1", 1)
-	if Input.is_action_just_pressed("3"):
-		activate("1", 2)
-	if Input.is_action_just_pressed("4"):
-		activate("1", 3)
-	if Input.is_action_just_pressed("5"):
-		activate("1", 4)
-	if Input.is_action_just_pressed("6"):
-		activate("1", 5)
+#func _process(_delta):
+	#if Input.is_action_just_pressed("1"):
+		#activate("1", 0)
+	#if Input.is_action_just_pressed("2"):
+		#activate("1", 1)
+	#if Input.is_action_just_pressed("3"):
+		#activate("1", 2)
+	#if Input.is_action_just_pressed("4"):
+		#activate("1", 3)
+	#if Input.is_action_just_pressed("5"):
+		#activate("1", 4)
+	#if Input.is_action_just_pressed("6"):
+		#activate("1", 5)
 
 func activate(p, powerup = rng.randi_range(0,5)):
 	if not is_playing:
